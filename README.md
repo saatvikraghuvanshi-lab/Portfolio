@@ -1,4 +1,4 @@
-# 🚀 Personal Portfolio Website
+#  Personal Portfolio Website
 
 Welcome to the repository for my personal portfolio website! This site showcases my engineering background, technical skillset, projects, and provides a way for recruiters and clients to get in touch with me. 
 
@@ -6,7 +6,7 @@ Welcome to the repository for my personal portfolio website! This site showcases
 
 ---
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 * **Frontend:** HTML5, CSS3, JavaScript
 * **Backend/Scripting:** Python
@@ -15,7 +15,7 @@ Welcome to the repository for my personal portfolio website! This site showcases
 
 ---
 
-## ✨ Features
+##  Features
 
 * **Responsive Design:** Fully optimized for mobile, tablet, and desktop screens.
 * **Project Showcase:** A curated list of my best developer projects with live links and source code.
@@ -24,7 +24,7 @@ Welcome to the repository for my personal portfolio website! This site showcases
 
 ---
 
-## 📁 Project Structure
+##  Project Structure
 
 ```text
 ├── assets/           # Images, icons, and profile media
