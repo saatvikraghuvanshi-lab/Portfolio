@@ -1,0 +1,10 @@
+.DS_Store
+Thumbs.db
+
+# Local editor/runtime state
+.vercel/
+node_modules/
+
+# Generated resume previews
+resume_render/
+

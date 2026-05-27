@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio of Saatvik Raghuvanshi, an aspiring product engineer and undergraduate CSE student building freelance full-stack websites, frontend interfaces, and UI/UX projects."
+    />
+    <title>Saatvik Raghuvanshi | Portfolio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="styles.css?v=8" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="Saatvik Raghuvanshi home">
+        <img class="nav-avatar" src="assets/profile.jpeg" alt="" />
+        <span class="brand-copy">Saatvik Raghuvanshi</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero-section" aria-label="Introduction">
+        <img class="hero-image" src="assets/hero-workspace.png" alt="" />
+        <div class="hero-overlay"></div>
+        <div class="hero-content page-shell">
+          <p class="eyebrow">Aspiring Product Engineer | Student | Part-time Freelance Developer</p>
+          <h1>Saatvik Raghuvanshi</h1>
+          <p class="hero-copy">
+            CSE undergraduate and part-time freelance developer building clean full-stack web apps with
+            strong frontend, database, and product thinking. Recent work spans social apps, disaster response
+            dashboards, civic AI assistants, and GIS tools.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects</a>
+            <a class="button button-secondary" href="Saatvik_Raghuvanshi_Resume_ATS.docx">Download resume</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-shell intro-grid" aria-labelledby="about-title">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 id="about-title">I like turning rough ideas into usable web products.</h2>
+        </div>
+        <div class="intro-copy">
+          <p>
+            I study Computer Science at Manipal University Jaipur and spend a lot of my time building outside
+            the classroom. Most of my work starts with a simple question: can this idea become something people
+            can actually use by the end of the week?
+          </p>
+          <p>
+            I care about clean interfaces, practical flows, and databases that do not fall apart once real users
+            start clicking around. Ideathons, hackathons, freelance websites, robots, drones, AutoCAD, and GIS maps
+            have all shaped how I build: fast enough to ship, careful enough to explain.
+          </p>
+          <figure class="about-portrait">
+            <img src="assets/profile.jpeg" alt="Saatvik Raghuvanshi" />
+          </figure>
+        </div>
+      </section>
+
+      <section class="section page-shell" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <p class="section-kicker">Featured work</p>
+          <h2 id="projects-title">Projects I have shipped, tested, and learned from.</h2>
+        </div>
+
+        <div class="project-list">
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/projects/vibebatch/vibebatch-signup.png" alt="VibeBatch signup preview with profile setup and account creation" loading="lazy" />
+            </div>
+            <div class="project-meta">
+              <span>Social web app</span>
+              <span>React/Vite + Supabase/PostgreSQL</span>
+            </div>
+            <h3>VibeBatch</h3>
+            <p>
+              A social personality web application where friends anonymously vote on each other's traits,
+              build public-facing vibe profiles, and unlock premium visual identity cards.
+            </p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+            <ul>
+              <li>Architected relational PostgreSQL schemas for user profiles, friend relationships, trait voting, messages, story cards, and premium flows.</li>
+              <li>Engineered data privacy patterns using Supabase Row Level Security for user-owned profile, relationship, message, and trait data.</li>
+              <li>Implemented secure authentication, premium visual identity cards, invite/share flows, and product workflows with React/Vite, Supabase Auth, and database services.</li>
+              <li>Designed premium story cards with 15 randomized backgrounds selected through color-theory logic connected to each user's trait profile.</li>
+              <li>Integrated a Gemini-based help chatbot for small issues, how-to questions, and confusion points, backed by a dedicated support mail flow.</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://www.vibebatch.net/" target="_blank" rel="noreferrer">Live site</a>
+              <a href="https://github.com/saatvikraghuvanshi-lab/VibeBatch" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <details class="project-gallery">
+              <summary>Gallery <span>14 UI screens</span></summary>
+              <div class="gallery-grid" data-gallery="VibeBatch">
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-signup.png" aria-label="Open VibeBatch signup screen">
+                  <img src="assets/projects/vibebatch/vibebatch-signup.png" alt="VibeBatch signup screen with profile setup and upload flow" loading="lazy" />
+                  <span>Signup</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-dashboard.png" aria-label="Open VibeBatch dashboard">
+                  <img src="assets/projects/vibebatch/vibebatch-dashboard.png" alt="VibeBatch dashboard with profile card, top traits, trait breakdown, and friend activity" loading="lazy" />
+                  <span>Dashboard</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-invite.png" aria-label="Open VibeBatch invite friend screen">
+                  <img src="assets/projects/vibebatch/vibebatch-invite.png" alt="VibeBatch invite friend screen with copy link and social share options" loading="lazy" />
+                  <span>Invite</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-settings.png" aria-label="Open VibeBatch settings screen">
+                  <img src="assets/projects/vibebatch/vibebatch-settings.png" alt="VibeBatch settings screen with profile, password, story card, and identity title actions" loading="lazy" />
+                  <span>Settings</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-friends.png" aria-label="Open VibeBatch friends screen">
+                  <img src="assets/projects/vibebatch/vibebatch-friends.png" alt="VibeBatch friends list with vote status and message actions" loading="lazy" />
+                  <span>Friends</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-traits.png" aria-label="Open VibeBatch traits screen">
+                  <img src="assets/projects/vibebatch/vibebatch-traits.png" alt="VibeBatch traits screen showing top traits, sponsored signal, and voted trait percentages" loading="lazy" />
+                  <span>Traits</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-custom-traits.png" aria-label="Open VibeBatch custom traits screen">
+                  <img src="assets/projects/vibebatch/vibebatch-custom-traits.png" alt="VibeBatch custom and predefined traits list with voting percentages" loading="lazy" />
+                  <span>Custom traits</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-eligibility.png" aria-label="Open VibeBatch eligibility screen">
+                  <img src="assets/projects/vibebatch/vibebatch-eligibility.png" alt="VibeBatch eligibility screen explaining six-month vote duration checks" loading="lazy" />
+                  <span>Eligibility</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-vote-tracker.png" aria-label="Open VibeBatch vote tracker screen">
+                  <img src="assets/projects/vibebatch/vibebatch-vote-tracker.png" alt="VibeBatch vote tracker screen with eligible friends and participation metrics" loading="lazy" />
+                  <span>Vote tracker</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-premium.png" aria-label="Open VibeBatch premium screen">
+                  <img src="assets/projects/vibebatch/vibebatch-premium.png" alt="VibeBatch premium private insight studio with anonymous trait hints" loading="lazy" />
+                  <span>Premium</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-premium-card-blue.png" aria-label="Open VibeBatch premium blue identity card">
+                  <img src="assets/projects/vibebatch/vibebatch-premium-card-blue.png" alt="VibeBatch premium blue visual identity card with top traits and vibe summary" loading="lazy" />
+                  <span>Blue card</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-premium-card-mono.png" aria-label="Open VibeBatch premium monochrome identity card">
+                  <img src="assets/projects/vibebatch/vibebatch-premium-card-mono.png" alt="VibeBatch premium monochrome visual identity card with top traits and vibe summary" loading="lazy" />
+                  <span>Mono card</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-story-card.png" aria-label="Open VibeBatch story card">
+                  <img src="assets/projects/vibebatch/vibebatch-story-card.png" alt="VibeBatch story card showing username, identity title, and ranked traits" loading="lazy" />
+                  <span>Story card</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/vibebatch/vibebatch-help-support.png" aria-label="Open VibeBatch help and support screen">
+                  <img src="assets/projects/vibebatch/vibebatch-help-support.png" alt="VibeBatch help screen with support email and chatbot support form" loading="lazy" />
+                  <span>Help</span>
+                </button>
+              </div>
+              <p class="gallery-empty">VibeBatch screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
+            </details>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="ResilienceOS tactical disaster response map preview" loading="lazy" />
+            </div>
+            <div class="project-meta">
+              <span>Disaster management</span>
+              <span>Simulation UI</span>
+            </div>
+            <h3>ResilienceOS</h3>
+            <p>
+              A disaster-response simulation platform with role-based dashboards for command, responders,
+              civilians, training, strategy, and forecast reporting.
+            </p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+            <ul>
+              <li>Built role-specific emergency workflows for admin command, responder tasks, civilian SOS reporting, and readiness training.</li>
+              <li>Designed tactical dark-mode interfaces for map simulation, field deployment, resilience scoring, and strategic planning.</li>
+              <li>Recognized as a 4th place finisher during Startup Forge Ideathon's 48-hour intensive build.</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://resilienceos.vercel.app/" target="_blank" rel="noreferrer">Live site</a>
+              <a href="https://github.com/saatvikraghuvanshi-lab/RESILIENCEOS" target="_blank" rel="noreferrer">GitHub</a>
+            </div>
+            <details class="project-gallery">
+              <summary>Gallery <span>7 simulation screens</span></summary>
+              <div class="gallery-grid" data-gallery="ResilienceOS">
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-login.png" aria-label="Open ResilienceOS login screen">
+                  <img src="assets/projects/resilienceos/resilienceos-login.png" alt="ResilienceOS tactical login and uplink terminal screen" loading="lazy" />
+                  <span>Uplink</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-admin-map.png" aria-label="Open ResilienceOS admin map simulation">
+                  <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="ResilienceOS admin tactical map simulation with deployment assets" loading="lazy" />
+                  <span>Admin map</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-civilian-sos.png" aria-label="Open ResilienceOS civilian SOS screen">
+                  <img src="assets/projects/resilienceos/resilienceos-civilian-sos.png" alt="ResilienceOS civilian emergency SOS reporting portal" loading="lazy" />
+                  <span>Civilian SOS</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-training.png" aria-label="Open ResilienceOS training screen">
+                  <img src="assets/projects/resilienceos/resilienceos-training.png" alt="ResilienceOS academy training and readiness drills screen" loading="lazy" />
+                  <span>Training</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-strategy.png" aria-label="Open ResilienceOS strategy matrix screen">
+                  <img src="assets/projects/resilienceos/resilienceos-strategy.png" alt="ResilienceOS strategic resilience matrix dashboard" loading="lazy" />
+                  <span>Strategy</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-report.png" aria-label="Open ResilienceOS strategic forecast report">
+                  <img src="assets/projects/resilienceos/resilienceos-report.png" alt="ResilienceOS strategic forecast report PDF view" loading="lazy" />
+                  <span>Report</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/resilienceos/resilienceos-responder.png" aria-label="Open ResilienceOS responder field ops screen">
+                  <img src="assets/projects/resilienceos/resilienceos-responder.png" alt="ResilienceOS responder field operations task screen" loading="lazy" />
+                  <span>Responder</span>
+                </button>
+              </div>
+              <p class="gallery-empty">ResilienceOS screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
+            </details>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/projects/jansahayak/jansahayak-home.png" alt="JanSahayak government scheme discovery dashboard preview" loading="lazy" />
+            </div>
+            <div class="project-meta">
+              <span>Civic tech</span>
+              <span>Vibeathon Top 5</span>
+            </div>
+            <h3>JanSahayak</h3>
+            <p>
+              An AI-powered community assistant for discovering government schemes, checking eligibility,
+              and guiding users through benefits in a simpler, more accessible interface.
+            </p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+            <ul>
+              <li>Built during a college Vibeathon as my first serious attempt at vibe coding and rapid product prototyping.</li>
+              <li>Placed in the top 5 with a working demo covering login, scheme discovery, filters, and an AI assistant flow.</li>
+              <li>Focused on frontend, UI/UX, accessibility, and clear civic-service navigation for everyday users.</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://jansahayak1.netlify.app/" target="_blank" rel="noreferrer">Live site</a>
+            </div>
+            <details class="project-gallery">
+              <summary>Gallery <span>5 UI screens</span></summary>
+              <div class="gallery-grid" data-gallery="JanSahayak">
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-login.png" aria-label="Open JanSahayak login screen">
+                  <img src="assets/projects/jansahayak/jansahayak-login.png" alt="JanSahayak login screen for government benefits assistant" loading="lazy" />
+                  <span>Login</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-home.png" aria-label="Open JanSahayak home dashboard">
+                  <img src="assets/projects/jansahayak/jansahayak-home.png" alt="JanSahayak home dashboard with search and top opportunities" loading="lazy" />
+                  <span>Home</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-explore.png" aria-label="Open JanSahayak explore schemes screen">
+                  <img src="assets/projects/jansahayak/jansahayak-explore.png" alt="JanSahayak explore schemes page with search, filters, and scheme cards" loading="lazy" />
+                  <span>Explore</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-ai-assistant.png" aria-label="Open JanSahayak AI assistant screen">
+                  <img src="assets/projects/jansahayak/jansahayak-ai-assistant.png" alt="JanSahayak AI assistant chat for government scheme guidance" loading="lazy" />
+                  <span>AI assistant</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-schemes.png" aria-label="Open JanSahayak scheme cards screen">
+                  <img src="assets/projects/jansahayak/jansahayak-schemes.png" alt="JanSahayak scheme cards and category browsing interface" loading="lazy" />
+                  <span>Schemes</span>
+                </button>
+              </div>
+              <p class="gallery-empty">JanSahayak screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
+            </details>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card">
+            <div class="project-preview">
+              <img src="assets/projects/terrapulse/terrapulse-satellite.png" alt="TerraPulse satellite GIS field dashboard preview" loading="lazy" />
+            </div>
+            <div class="project-meta">
+              <span>GIS interface</span>
+              <span>Web app</span>
+            </div>
+            <h3>TerraPulse Pro</h3>
+            <p>
+              A GIS-oriented web application that connects geospatial product thinking with accessible
+              frontend presentation.
+            </p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+            <ul>
+              <li>Built and deployed a map/data-oriented interface.</li>
+              <li>Explored how technical location data can become usable web experiences.</li>
+            </ul>
+            <div class="project-links">
+              <a href="https://terrapulsepro1.netlify.app/" target="_blank" rel="noreferrer">Live site</a>
+            </div>
+            <details class="project-gallery">
+              <summary>Gallery <span>5 UI screens</span></summary>
+              <div class="gallery-grid" data-gallery="TerraPulse Pro">
+                <button class="gallery-thumb" type="button" data-full="assets/projects/terrapulse/terrapulse-map-osm.png" aria-label="Open TerraPulse map view">
+                  <img src="assets/projects/terrapulse/terrapulse-map-osm.png" alt="TerraPulse field map view with field list and OpenStreetMap layer" loading="lazy" />
+                  <span>Map layer</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/terrapulse/terrapulse-map-light.png" aria-label="Open TerraPulse light map view">
+                  <img src="assets/projects/terrapulse/terrapulse-map-light.png" alt="TerraPulse light map view with field health cards" loading="lazy" />
+                  <span>Light map</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/terrapulse/terrapulse-satellite.png" aria-label="Open TerraPulse satellite view">
+                  <img src="assets/projects/terrapulse/terrapulse-satellite.png" alt="TerraPulse satellite imagery map with selected field overlays" loading="lazy" />
+                  <span>Satellite</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/terrapulse/terrapulse-analytics.png" aria-label="Open TerraPulse analytics screen">
+                  <img src="assets/projects/terrapulse/terrapulse-analytics.png" alt="TerraPulse analytics and AI advisor dashboard" loading="lazy" />
+                  <span>Analytics</span>
+                </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/terrapulse/terrapulse-login.png" aria-label="Open TerraPulse login screen">
+                  <img src="assets/projects/terrapulse/terrapulse-login.png" alt="TerraPulse login screen for rural farmers GIS dashboard" loading="lazy" />
+                  <span>Login</span>
+                </button>
+              </div>
+              <p class="gallery-empty">TerraPulse screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
+            </details>
+              </div>
+            </details>
+          </article>
+        </div>
+      </section>
+
+      <section class="section skills-band" id="skills" aria-labelledby="skills-title">
+        <div class="page-shell">
+          <div class="section-heading">
+            <p class="section-kicker">Skills</p>
+          <h2 id="skills-title">Technical skills and tools I use while building.</h2>
+          </div>
+          <div class="tech-grid" aria-label="Technologies and tools">
+            <div class="tech-card"><i class="devicon-c-plain colored"></i><p>C Language</p></div>
+            <div class="tech-card"><i class="devicon-typescript-plain colored"></i><p>TypeScript</p></div>
+            <div class="tech-card"><i class="devicon-javascript-plain colored"></i><p>JavaScript</p></div>
+            <div class="tech-card"><i class="devicon-python-plain colored"></i><p>Python</p></div>
+            <div class="tech-card"><i class="devicon-html5-plain colored"></i><p>HTML</p></div>
+            <div class="tech-card"><i class="devicon-css3-plain colored"></i><p>CSS</p></div>
+            <div class="tech-card"><i class="devicon-react-original colored"></i><p>React</p></div>
+            <div class="tech-card"><i class="devicon-nextjs-plain"></i><p>Next.js</p></div>
+            <div class="tech-card"><i class="devicon-tailwindcss-original colored"></i><p>Tailwind CSS</p></div>
+            <div class="tech-card"><i class="devicon-nodejs-plain-wordmark colored"></i><p>Node.js</p></div>
+            <div class="tech-card"><i class="devicon-supabase-plain colored"></i><p>Supabase</p></div>
+            <div class="tech-card"><i class="devicon-postgresql-plain colored"></i><p>PostgreSQL</p></div>
+            <div class="tech-card"><span class="tech-mark dark">API</span><p>APIs</p></div>
+            <div class="tech-card"><i class="devicon-git-plain colored"></i><p>Git</p></div>
+            <div class="tech-card"><i class="devicon-github-original"></i><p>GitHub</p></div>
+            <div class="tech-card"><i class="devicon-vercel-original"></i><p>Vercel</p></div>
+            <div class="tech-card"><i class="devicon-netlify-plain colored"></i><p>Netlify</p></div>
+            <div class="tech-card"><i class="devicon-googlecloud-plain colored"></i><p>Google Cloud</p></div>
+            <div class="tech-card"><i class="devicon-firebase-plain colored"></i><p>Firebase</p></div>
+            <div class="tech-card"><span class="tech-mark blue">GS</span><p>Google Stitch</p></div>
+            <div class="tech-card"><i class="devicon-github-original"></i><p>GitHub Docs</p></div>
+            <div class="tech-card"><span class="tech-mark amber">CAD</span><p>AutoCAD</p></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section page-shell timeline-grid" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
+          <p class="section-kicker">Background</p>
+          <h2 id="experience-title">Education, experience, and proof.</h2>
+        </div>
+
+        <div class="timeline">
+          <article class="timeline-item">
+            <p class="timeline-date">Expected 2029</p>
+            <h3>Manipal University Jaipur</h3>
+            <p>B.Tech in Computer Science and Engineering. Current GPA: 7.0.</p>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">Freelance</p>
+            <h3>Part-time freelance full-stack developer</h3>
+            <p>Build and ship websites and product demos across frontend, UI/UX, backend, database, and deployment work.</p>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">Training phase</p>
+            <h3>Aspiring cloud and product engineer</h3>
+            <p>Building cloud fundamentals while learning how frontend products connect with secure backend and database systems.</p>
+          </article>
+          <article class="timeline-item">
+            <p class="timeline-date">Schooling</p>
+            <h3>Army Public School + Resonance</h3>
+            <p>Class 10: 86% at Army Public School. Class 12: 82% at Resonance.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section page-shell achievements" aria-labelledby="achievements-title">
+        <div class="section-heading">
+          <p class="section-kicker">Achievements</p>
+          <h2 id="achievements-title">Ideathons, hackathons, workshops, and certifications.</h2>
+        </div>
+        <div class="achievement-list">
+          <p>Startup Forge Ideathon - 4th Place Finisher, GCEC Global Foundation.</p>
+          <p>Career Guidance Session: Artificial Intelligence and Prompt Engineering, GradGuru Innovations.</p>
+          <p>Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, and Machine Learning Workshop at Times Technoxian 2019.</p>
+        </div>
+      </section>
+
+      <section class="section contact-section" id="contact" aria-labelledby="contact-title">
+        <div class="page-shell contact-layout">
+          <div>
+            <img class="contact-avatar" src="assets/profile.jpeg" alt="" />
+            <p class="section-kicker">Contact</p>
+            <h2 id="contact-title">Let's build something useful.</h2>
+            <p>
+              I am open to internships, part-time freelance websites, frontend/UI/UX work, hackathon collaborations,
+              and opportunities connected to cloud engineering and full-stack product development.
+            </p>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:raghuvanshisaatvik@gmail.com" aria-label="Email Saatvik">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 3.1V17h16V8.1l-7.4 5.2a1 1 0 0 1-1.2 0L4 8.1Zm1.8-1.1 6.2 4.35L18.2 7H5.8Z" />
+              </svg>
+              <span>raghuvanshisaatvik@gmail.com</span>
+            </a>
+            <a href="tel:+919301661150" aria-label="Call Saatvik">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M6.6 10.8c1.5 3 3.6 5.1 6.6 6.6l2.2-2.2a1.5 1.5 0 0 1 1.5-.36c1.64.54 3.1.81 4.1.88a1.05 1.05 0 0 1 1 1.05V20.5A1.5 1.5 0 0 1 20.5 22C10.28 22 2 13.72 2 3.5A1.5 1.5 0 0 1 3.5 2h3.23a1.05 1.05 0 0 1 1.05 1c.07 1 .34 2.46.88 4.1a1.5 1.5 0 0 1-.36 1.5l-1.7 2.2Z" />
+              </svg>
+              <span>+91 9301661150</span>
+            </a>
+            <a href="https://www.linkedin.com/in/saatvik-raghuvanshi-b68064399/" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29h.01ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.54V9H7.1v11.45ZM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z" />
+              </svg>
+              <span>LinkedIn</span>
+            </a>
+            <a href="https://github.com/saatvikraghuvanshi-lab" target="_blank" rel="noreferrer" aria-label="GitHub profile">
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23A11.45 11.45 0 0 1 12 5.8c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
+              </svg>
+              <span>GitHub</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Built by Saatvik Raghuvanshi.</p>
+      <div class="footer-actions">
+        <a class="social-icon" href="https://github.com/saatvikraghuvanshi-lab" target="_blank" rel="noreferrer" aria-label="GitHub">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M12 .5a12 12 0 0 0-3.79 23.39c.6.11.82-.26.82-.58v-2.04c-3.34.73-4.04-1.42-4.04-1.42-.55-1.38-1.34-1.75-1.34-1.75-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.08 1.84 2.82 1.31 3.5 1 .11-.78.42-1.31.76-1.61-2.66-.3-5.46-1.33-5.46-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23A11.45 11.45 0 0 1 12 5.8c1.02 0 2.04.14 3 .4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.23 1.91 1.23 3.22 0 4.61-2.8 5.62-5.48 5.92.43.37.81 1.1.81 2.22v3.29c0 .32.22.7.83.58A12 12 0 0 0 12 .5Z" />
+          </svg>
+        </a>
+        <a class="social-icon" href="https://www.linkedin.com/in/saatvik-raghuvanshi-b68064399/" target="_blank" rel="noreferrer" aria-label="LinkedIn">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <path d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.86-3.04-1.86 0-2.14 1.45-2.14 2.95v5.66H9.33V9h3.42v1.56h.05c.48-.9 1.64-1.86 3.37-1.86 3.6 0 4.27 2.37 4.27 5.46v6.29h.01ZM5.32 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12Zm1.78 13.02H3.54V9H7.1v11.45ZM22.23 0H1.77C.8 0 0 .77 0 1.72v20.56C0 23.23.8 24 1.77 24h20.46c.98 0 1.77-.77 1.77-1.72V1.72C24 .77 23.2 0 22.23 0Z" />
+          </svg>
+        </a>
+        <a class="back-to-top" href="#top" aria-label="Back to top">↑</a>
+      </div>
+    </footer>
+
+    <script src="script.js?v=8"></script>
+  </body>
+</html>
