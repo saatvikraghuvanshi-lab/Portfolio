@@ -181,9 +181,9 @@ def main():
     add_heading(doc, "Technical Skills")
     skills = [
         ("Languages", "C, Python, TypeScript, HTML"),
-        ("Frontend", "React.js, Next.js, TypeScript, Tailwind CSS, UI/UX, responsive web development"),
-        ("Backend and Database", "Node.js, PostgreSQL, Supabase, relational data modeling, Row Level Security (RLS), APIs"),
-        ("Deployment and Tools", "Git, GitHub, Vercel, Netlify, cloud computing training"),
+        ("Frontend", "React.js, Next.js, TypeScript, Redux, Tailwind CSS, shadcn/ui, UI/UX, responsive web development"),
+        ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, Convex Auth, Convex Storage, relational data modeling, Row Level Security (RLS), APIs"),
+        ("AI, Workflows, and Tools", "Gemini API, Inngest, Git, GitHub, Vercel, Netlify, cloud computing training"),
         ("Additional", "AutoCAD, drone building, line follower robots, GIS map integration, AI prompting, analytical problem solving"),
     ]
     for label, value in skills:
@@ -193,6 +193,11 @@ def main():
         p.add_run(value)
 
     add_heading(doc, "Projects")
+    add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project")
+    add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
+    add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
+    add_bullet(doc, "Integrated Convex, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database, authentication, storage, background jobs, and AI workflow orchestration.")
+
     add_role_line(doc, "VibeBatch - Full-Stack Web Application", "Live: https://www.vibebatch.net/")
     add_bullet(doc, "Architected relational PostgreSQL schemas in Supabase to support user profiles, friend relationships, trait voting, messages, story cards, and premium identity flows.")
     add_bullet(doc, "Engineered data privacy and security patterns using Supabase Row Level Security (RLS) for user-owned profile, relationship, message, and trait data.")
