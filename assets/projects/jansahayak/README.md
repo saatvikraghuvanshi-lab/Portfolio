@@ -6,6 +6,5 @@ The portfolio gallery is wired to these filenames:
 - `jansahayak-home.png`
 - `jansahayak-explore.png`
 - `jansahayak-ai-assistant.png`
-- `jansahayak-schemes.png`
 
 The gallery hides missing files automatically, so the page will not show broken thumbnails while screenshots are being added.

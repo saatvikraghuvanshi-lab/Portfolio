@@ -181,9 +181,9 @@ def main():
     add_heading(doc, "Technical Skills")
     skills = [
         ("Languages", "C, Python, TypeScript, HTML"),
-        ("Frontend", "React.js, Next.js, TypeScript, Redux, Tailwind CSS, shadcn/ui, UI/UX, responsive web development"),
+        ("Frontend", "React.js, Next.js, TypeScript, Redux, Tailwind CSS, shadcn/ui, Radix UI, UI/UX, responsive web development"),
         ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, Convex Auth, Convex Storage, relational data modeling, Row Level Security (RLS), APIs"),
-        ("AI, Workflows, and Tools", "Gemini API, Inngest, Git, GitHub, Vercel, Netlify, cloud computing training"),
+        ("AI, Workflows, and Tools", "Gemini API, Inngest, Git, GitHub, Vercel, Netlify, ngrok, VS Code, Windows, cloud computing training"),
         ("Additional", "AutoCAD, drone building, line follower robots, GIS map integration, AI prompting, analytical problem solving"),
     ]
     for label, value in skills:
@@ -197,6 +197,7 @@ def main():
     add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
     add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
     add_bullet(doc, "Integrated Convex, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database, authentication, storage, background jobs, and AI workflow orchestration.")
+    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/Ai-SaaS-Sketch-To-Design")
 
     add_role_line(doc, "VibeBatch - Full-Stack Web Application", "Live: https://www.vibebatch.net/")
     add_bullet(doc, "Architected relational PostgreSQL schemas in Supabase to support user profiles, friend relationships, trait voting, messages, story cards, and premium identity flows.")

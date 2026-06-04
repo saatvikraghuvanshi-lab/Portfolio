@@ -2,7 +2,6 @@
 
 The portfolio gallery is wired to these filenames:
 
-- `terrapulse-map-osm.png`
 - `terrapulse-map-light.png`
 - `terrapulse-satellite.png`
 - `terrapulse-analytics.png`
