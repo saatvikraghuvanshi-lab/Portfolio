@@ -201,7 +201,7 @@ def main():
         p.add_run(value)
 
     add_heading(doc, "Projects")
-    add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project")
+    add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project", "Live: https://ai-saa-s-sketch-to-design.vercel.app")
     add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, React, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, Radix UI, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
     add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
     add_bullet(doc, "Integrated Convex database, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database operations, authentication, file storage, background jobs, and AI workflow orchestration.")
