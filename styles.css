@@ -279,34 +279,6 @@ h3 {
   font-size: 1.08rem;
 }
 
-.hero-proof {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 10px;
-  max-width: 650px;
-  margin-top: 26px;
-}
-
-.hero-proof span {
-  min-height: 78px;
-  padding: 14px;
-  border: 1px solid rgba(148, 163, 184, 0.22);
-  border-left: 2px solid rgba(52, 211, 153, 0.78);
-  border-radius: 8px;
-  color: rgba(243, 244, 246, 0.72);
-  background: rgba(15, 23, 42, 0.64);
-  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.04);
-  font-size: 0.86rem;
-  font-weight: 700;
-}
-
-.hero-proof strong {
-  display: block;
-  color: var(--text-dark);
-  font-size: 1.4rem;
-  line-height: 1.1;
-}
-
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
@@ -1459,10 +1431,6 @@ img.brand-logo {
     gap: 28px;
     padding-top: 112px;
     padding-bottom: 56px;
-  }
-
-  .hero-proof {
-    grid-template-columns: 1fr;
   }
 
   .hero-showcase {
