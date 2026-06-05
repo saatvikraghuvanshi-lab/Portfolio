@@ -148,7 +148,7 @@ def main():
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     title.paragraph_format.space_after = Pt(3)
-    title.add_run("Product Engineer | Full-Stack Engineer (Frontend-Leaning) | Supabase/PostgreSQL")
+    title.add_run("B.Tech CSE Student | Full-Stack Developer | Cloud Engineering Aspirant")
 
     add_hyperlink_line(
         doc,
@@ -167,24 +167,32 @@ def main():
 
     add_heading(doc, "Summary")
     doc.add_paragraph(
-        "Product-focused Software Engineer specializing in modern frontend frameworks and Backend-as-a-Service "
-        "(BaaS) architectures. Proven track record of independently architecting, securing, and deploying "
-        "full-stack web applications by bridging intuitive UI design with robust PostgreSQL database engineering."
+        "B.Tech Computer Science student with hands-on experience building full-stack web applications, "
+        "frontend interfaces, database-backed projects, AI-assisted workflows, and deployed portfolio projects. "
+        "Experienced with React, Next.js, TypeScript, Supabase, PostgreSQL, Convex, Tailwind CSS, Git, GitHub, "
+        "and Vercel through hackathons, ideathons, freelance work, and project-based learning."
+    )
+
+    add_heading(doc, "Target Roles")
+    doc.add_paragraph(
+        "Cloud Engineer Intern, Full-Stack Developer Intern, Frontend Developer Intern, Web Developer Intern, "
+        "Software Engineering Intern, Freelance Web Developer"
     )
 
     add_heading(doc, "Education")
     add_role_line(doc, "Manipal University Jaipur - B.Tech in Computer Science and Engineering", "Expected 2029")
-    add_bullet(doc, "Current GPA: 7.0; completed first year coursework while building practical projects in full-stack development, APIs, UI/UX, and cloud-related tools.")
+    add_bullet(doc, "Current GPA: 7.0; completed first year coursework while building practical projects in full-stack development, APIs, UI/UX, databases, and cloud-related tools.")
     add_role_line(doc, "Army Public School - Class 10: 86% | Resonance - Class 12: 82%")
     add_bullet(doc, "Academic background supported by early exposure to robotics, drone building, line follower systems, and technical workshops.")
 
     add_heading(doc, "Technical Skills")
     skills = [
         ("Languages", "C, Python, TypeScript, HTML"),
-        ("Frontend", "React.js, Next.js, TypeScript, Redux, Tailwind CSS, shadcn/ui, Radix UI, UI/UX, responsive web development"),
-        ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, Convex Auth, Convex Storage, relational data modeling, Row Level Security (RLS), APIs"),
-        ("AI, Workflows, and Tools", "Gemini API, Inngest, Git, GitHub, Vercel, Netlify, ngrok, VS Code, Windows, cloud computing training"),
-        ("Additional", "AutoCAD, drone building, line follower robots, GIS map integration, AI prompting, analytical problem solving"),
+        ("Frontend", "React.js, Next.js, TypeScript, JavaScript, Redux, Tailwind CSS, shadcn/ui, Radix UI, HTML, CSS, responsive web design, UI/UX"),
+        ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, Convex Auth, Convex Storage, relational data modeling, Row Level Security (RLS), REST APIs, authentication"),
+        ("Cloud, AI, and Workflows", "Google Cloud, Firebase, Gemini API, Inngest, cloud computing training, AI prompting, background jobs, deployment workflows"),
+        ("Developer Tools", "Git, GitHub, GitHub Docs, Vercel, Netlify, ngrok, Google Stitch, OpenAI Codex"),
+        ("Additional Technical Skills", "AutoCAD, drone building, line follower robots, GIS map integration, robotics fundamentals, analytical problem solving"),
     ]
     for label, value in skills:
         p = doc.add_paragraph()
@@ -194,9 +202,9 @@ def main():
 
     add_heading(doc, "Projects")
     add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project")
-    add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
+    add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, React, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, Radix UI, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
     add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
-    add_bullet(doc, "Integrated Convex, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database, authentication, storage, background jobs, and AI workflow orchestration.")
+    add_bullet(doc, "Integrated Convex database, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database operations, authentication, file storage, background jobs, and AI workflow orchestration.")
     add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/Ai-SaaS-Sketch-To-Design")
 
     add_role_line(doc, "VibeBatch - Full-Stack Web Application", "Live: https://www.vibebatch.net/")
@@ -206,23 +214,23 @@ def main():
     add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/VibeBatch")
 
     add_role_line(doc, "ResilienceOS - Disaster Management Web Platform", "Live: https://resilienceos.vercel.app/")
-    add_bullet(doc, "Built frontend and backend workflows for a unified disaster management system developed during Startup Forge Ideathon.")
-    add_bullet(doc, "Modeled data flows for emergency-response coordination, user-facing reporting, and operational information access.")
+    add_bullet(doc, "Built frontend and backend workflows for a unified disaster management system developed during Startup Forge Ideathon, including admin, responder, civilian, training, strategy, and report views.")
+    add_bullet(doc, "Modeled emergency-response data flows for map simulation, responder coordination, civilian SOS reporting, readiness training, and operational information access.")
     add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/RESILIENCEOS")
 
     add_role_line(doc, "JanSahayak - Public Assistance Web Application", "Live: https://jansahayak1.netlify.app/")
-    add_bullet(doc, "Developed and deployed a civic-help oriented web application with structured service-access flows and user-facing data presentation.")
-    add_bullet(doc, "Applied frontend development, UI structuring, and web deployment practices using a Netlify-hosted workflow.")
+    add_bullet(doc, "Developed and deployed a civic-help oriented web application for a college Vibeathon, using AI-assisted workflows to support government-scheme discovery and eligibility guidance.")
+    add_bullet(doc, "Placed in the top 5 with a working prototype covering login, scheme discovery, filters, user dashboards, and an AI assistant flow.")
 
     add_role_line(doc, "TerraPulse Pro - GIS-Oriented Web Application", "Live: https://terrapulsepro1.netlify.app/")
-    add_bullet(doc, "Built and deployed a GIS-oriented web application focused on map/data presentation and geospatial product workflows.")
-    add_bullet(doc, "Strengthened experience in integrating technical data views into accessible web interfaces.")
+    add_bullet(doc, "Built and deployed a GIS-oriented web application focused on map-based field visualization, satellite imagery views, NDVI-style analytics, and rural dashboard workflows.")
+    add_bullet(doc, "Strengthened experience in integrating geospatial data, map interfaces, technical metrics, and user-facing analytics into accessible web interfaces.")
 
     add_heading(doc, "Experience")
     add_role_line(doc, "Freelance Full-Stack Developer - VibeBatch")
-    add_bullet(doc, "Delivered a live web product for a freelance project, handling full-stack development responsibilities and deployment readiness.")
+    add_bullet(doc, "Delivered a live web product for a freelance project, handling full-stack development responsibilities, frontend implementation, database-backed workflows, and deployment readiness.")
     add_role_line(doc, "Cloud Computing Training - Training Phase")
-    add_bullet(doc, "Currently building foundational cloud computing knowledge aligned with a long-term cloud engineering career goal.")
+    add_bullet(doc, "Currently building foundational cloud computing knowledge aligned with cloud engineering internships, deployment workflows, backend services, and infrastructure fundamentals.")
 
     add_heading(doc, "Achievements and Certifications")
     add_bullet(doc, "Startup Forge Ideathon - 4th Place Finisher, GCEC Global Foundation; recognized for developing ResilienceOS during a 48-hour build.")
