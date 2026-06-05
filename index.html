@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="stylesheet" href="styles.css?v=11" />
+    <link rel="stylesheet" href="styles.css?v=13" />
   </head>
   <body>
     <header class="site-header">
@@ -40,20 +40,49 @@
 
     <main id="top">
       <section class="hero-section" aria-label="Introduction">
-        <img class="hero-image" src="assets/hero-workspace.png" alt="" />
+        <div class="hero-background" aria-hidden="true">
+          <img class="hero-image" src="assets/hero-workspace.png" alt="" />
+        </div>
         <div class="hero-overlay"></div>
         <div class="hero-content page-shell">
-          <p class="eyebrow">Aspiring Product Engineer | Student | Part-time Freelance Developer</p>
-          <h1>Saatvik Raghuvanshi</h1>
-          <p class="hero-copy">
-            CSE undergraduate and part-time freelance developer building clean full-stack web apps with
-            strong frontend, database, and product thinking. Recent work spans social apps, disaster response
-            dashboards, civic AI assistants, and GIS tools.
-          </p>
-          <div class="hero-actions">
-            <a class="button button-primary" href="#projects">View projects</a>
-            <a class="button button-secondary" href="Saatvik_Raghuvanshi_Resume_ATS.docx">Download resume</a>
+          <div class="hero-copy-block">
+            <p class="eyebrow">CSE undergrad building shipped product demos</p>
+            <h1>Saatvik Raghuvanshi</h1>
+            <p class="hero-copy">
+              I turn rough ideas into working web products: auth, dashboards, databases, AI flows, maps,
+              and UI systems that people can actually click through.
+            </p>
+            <div class="hero-proof" aria-label="Portfolio highlights">
+              <span><strong>5</strong> shipped project builds</span>
+              <span><strong>Top 5</strong> college vibeathon</span>
+              <span><strong>4th</strong> Startup Forge ideathon</span>
+            </div>
+            <div class="hero-actions">
+              <a class="button button-primary" href="#projects">View projects</a>
+              <a class="button button-secondary" href="Saatvik_Raghuvanshi_Resume_ATS.docx">Download resume</a>
+            </div>
           </div>
+          <aside class="hero-showcase" aria-label="Recent project previews">
+            <div class="showcase-header">
+              <span>Project queue</span>
+              <strong>Newest work first</strong>
+            </div>
+            <div class="showcase-frame showcase-main">
+              <img src="assets/projects/s2c/s2c-canvas.png" alt="" />
+              <span>S2C: AI sketch-to-design</span>
+            </div>
+            <div class="showcase-strip" aria-label="More recent work">
+              <div class="showcase-frame">
+                <img src="assets/projects/vibebatch/vibebatch-dashboard.png" alt="" />
+                <span>VibeBatch</span>
+              </div>
+              <div class="showcase-frame">
+                <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="" />
+                <span>ResilienceOS</span>
+              </div>
+            </div>
+            <p class="showcase-note">Latest: S2C, a full-stack AI SaaS learning build.</p>
+          </aside>
         </div>
       </section>
 
@@ -86,7 +115,8 @@
         </div>
 
         <div class="project-list">
-          <article class="project-card">
+          <!-- Project cards are sorted newest-first by data-added in script.js. Add new projects with the latest ISO date. -->
+          <article class="project-card" data-added="2026-06-05">
             <div class="project-preview">
               <img src="assets/projects/s2c/s2c-signin.png" alt="S2C dark-mode sign-in preview with Google authentication" loading="lazy" />
             </div>
@@ -149,7 +179,7 @@
               </div>
             </details>
           </article>
-<article class="project-card">
+          <article class="project-card" data-added="2026-06-04">
             <div class="project-preview">
               <img src="assets/projects/vibebatch/vibebatch-signup.png" alt="VibeBatch signup preview with profile setup and account creation" loading="lazy" />
             </div>
@@ -243,7 +273,7 @@
           </article>
 
 
-          <article class="project-card">
+          <article class="project-card" data-added="2026-06-03">
             <div class="project-preview">
               <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="ResilienceOS tactical disaster response map preview" loading="lazy" />
             </div>
@@ -307,7 +337,7 @@
           </article>
 
 
-          <article class="project-card">
+          <article class="project-card" data-added="2026-06-02">
             <div class="project-preview">
               <img src="assets/projects/jansahayak/jansahayak-home.png" alt="JanSahayak government scheme discovery dashboard preview" loading="lazy" />
             </div>
@@ -358,7 +388,7 @@
           </article>
 
 
-          <article class="project-card">
+          <article class="project-card" data-added="2026-06-01">
             <div class="project-preview">
               <img src="assets/projects/terrapulse/terrapulse-satellite.png" alt="TerraPulse satellite GIS field dashboard preview" loading="lazy" />
             </div>
@@ -572,6 +602,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=8"></script>
+    <script src="script.js?v=10"></script>
   </body>
 </html>

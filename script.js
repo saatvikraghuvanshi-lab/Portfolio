@@ -17,6 +17,15 @@ if (navToggle && navLinks) {
   });
 }
 
+const projectList = document.querySelector(".project-list");
+
+if (projectList) {
+  // Keep the portfolio ordered by recency. New projects should receive the latest ISO data-added date.
+  Array.from(projectList.querySelectorAll(".project-card"))
+    .sort((a, b) => (b.dataset.added || "").localeCompare(a.dataset.added || ""))
+    .forEach((card) => projectList.appendChild(card));
+}
+
 const revealTargets = document.querySelectorAll(
   ".section-heading, .intro-grid, .project-card, .tech-card, .timeline-item, .achievement-list p, .contact-layout"
 );
