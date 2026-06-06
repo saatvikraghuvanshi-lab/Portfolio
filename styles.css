@@ -1503,6 +1503,22 @@ img.brand-logo {
     max-width: 560px;
   }
 
+  .resume-download {
+    width: 100%;
+  }
+
+  .resume-download-menu {
+    position: static;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    min-width: 0;
+    margin-top: 10px;
+  }
+
+  .resume-download-menu[hidden] {
+    display: none;
+  }
+
   .intro-grid,
   .timeline-grid,
   .contact-layout {
@@ -1585,6 +1601,10 @@ img.brand-logo {
   .button,
   .contact-links a {
     width: 100%;
+  }
+
+  .resume-download-menu {
+    grid-template-columns: 1fr;
   }
 
   .social-icon {
