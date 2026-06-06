@@ -17,6 +17,45 @@ if (navToggle && navLinks) {
   });
 }
 
+const resumeDownload = document.querySelector(".resume-download");
+const resumeDownloadToggle = document.querySelector(".resume-download-toggle");
+const resumeDownloadMenu = document.querySelector(".resume-download-menu");
+
+function closeResumeDownload() {
+  if (!resumeDownload || !resumeDownloadToggle || !resumeDownloadMenu) {
+    return;
+  }
+
+  resumeDownload.classList.remove("is-open");
+  resumeDownloadToggle.setAttribute("aria-expanded", "false");
+  resumeDownloadMenu.hidden = true;
+}
+
+if (resumeDownload && resumeDownloadToggle && resumeDownloadMenu) {
+  resumeDownloadToggle.addEventListener("click", () => {
+    const isOpen = resumeDownload.classList.toggle("is-open");
+    resumeDownloadToggle.setAttribute("aria-expanded", String(isOpen));
+    resumeDownloadMenu.hidden = !isOpen;
+  });
+
+  resumeDownloadMenu.querySelectorAll("a").forEach((link) => {
+    link.addEventListener("click", closeResumeDownload);
+  });
+
+  document.addEventListener("click", (event) => {
+    if (!resumeDownload.contains(event.target)) {
+      closeResumeDownload();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      closeResumeDownload();
+      resumeDownloadToggle.focus();
+    }
+  });
+}
+
 const projectList = document.querySelector(".project-list");
 
 if (projectList) {

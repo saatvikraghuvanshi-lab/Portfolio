@@ -54,7 +54,20 @@
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#projects">View projects</a>
-              <a class="button button-secondary" href="Saatvik_Raghuvanshi_Resume_ATS.docx">Download resume</a>
+              <div class="resume-download">
+                <button
+                  class="button button-secondary resume-download-toggle"
+                  type="button"
+                  aria-expanded="false"
+                  aria-controls="resume-download-menu"
+                >
+                  Download resume
+                </button>
+                <div class="resume-download-menu" id="resume-download-menu" hidden>
+                  <a href="Saatvik_Raghuvanshi_Resume_ATS.pdf" download>Download PDF</a>
+                  <a href="Saatvik_Raghuvanshi_Resume_ATS.docx" download>Download DOCX</a>
+                </div>
+              </div>
             </div>
           </div>
           <aside class="hero-showcase" aria-label="Recent project previews">

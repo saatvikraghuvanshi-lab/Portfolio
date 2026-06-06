@@ -304,6 +304,72 @@ h3 {
 .button-secondary {
   color: var(--surface);
   border: 1px solid rgba(255, 255, 255, 0.46);
+  background: rgba(15, 23, 42, 0.22);
+  cursor: pointer;
+  font: inherit;
+}
+
+.resume-download {
+  position: relative;
+}
+
+.resume-download-toggle::after {
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin-left: 10px;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.resume-download.is-open .resume-download-toggle::after {
+  transform: translateY(2px) rotate(225deg);
+}
+
+.resume-download-menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  z-index: 20;
+  min-width: 210px;
+  overflow: hidden;
+  border: 1px solid rgba(148, 163, 184, 0.32);
+  border-radius: 8px;
+  background: rgba(11, 15, 25, 0.98);
+  box-shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
+}
+
+.resume-download-menu a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 15px;
+  color: var(--surface);
+  font-weight: 800;
+}
+
+.resume-download-menu a::after {
+  color: var(--teal);
+  font-size: 0.78rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.resume-download-menu a[href$=".pdf"]::after {
+  content: "PDF";
+}
+
+.resume-download-menu a[href$=".docx"]::after {
+  content: "Word";
+}
+
+.resume-download-menu a:hover,
+.resume-download-menu a:focus-visible {
+  background: rgba(16, 185, 129, 0.14);
+  outline: none;
 }
 
 .hero-showcase {

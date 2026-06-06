@@ -156,7 +156,7 @@ def main():
             "Jaipur, Rajasthan, India",
             "9301661150",
             "raghuvanshisaatvik@gmail.com",
-            ("linkedin.com/in/saatvik-raghuvanshi-b68064399", "https://www.linkedin.com/in/saatvik-raghuvanshi-b68064399/"),
+            ("linkedin.com/in/saatvik-raghuvanshi", "https://www.linkedin.com/in/saatvik-raghuvanshi"),
             ("github.com/saatvikraghuvanshi-lab", "https://github.com/saatvikraghuvanshi-lab"),
         ],
     )
