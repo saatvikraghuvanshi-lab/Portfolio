@@ -76,20 +76,20 @@
               <strong>Newest work first</strong>
             </div>
             <div class="showcase-frame showcase-main">
-              <img src="assets/projects/s2c/s2c-canvas.png" alt="" />
-              <span>S2C: AI sketch-to-design</span>
+              <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="" />
+              <span>ShockProof: AI meter tariff guard</span>
             </div>
             <div class="showcase-strip" aria-label="More recent work">
+              <div class="showcase-frame">
+                <img src="assets/projects/s2c/s2c-canvas.png" alt="" />
+                <span>S2C</span>
+              </div>
               <div class="showcase-frame">
                 <img src="assets/projects/vibebatch/vibebatch-dashboard.png" alt="" />
                 <span>VibeBatch</span>
               </div>
-              <div class="showcase-frame">
-                <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="" />
-                <span>ResilienceOS</span>
-              </div>
             </div>
-            <p class="showcase-note">Latest: S2C, a full-stack AI SaaS learning build.</p>
+            <p class="showcase-note">Latest: ShockProof, an AI smart meter tariff guard for Indian households.</p>
           </aside>
         </div>
       </section>
@@ -124,6 +124,62 @@
 
         <div class="project-list">
           <!-- Project cards are sorted newest-first by data-added in script.js. Add new projects with the latest ISO date. -->
+          <article class="project-card" data-added="2026-06-14">
+            <div class="project-preview">
+              <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="ShockProof dashboard preview showing AI meter reading and tariff risk insights" loading="lazy" />
+            </div>
+            <div class="project-meta">
+              <span>AI energy tool</span>
+              <span>Next.js + Supabase + Gemini</span>
+            </div>
+            <h3>ShockProof</h3>
+            <p>
+              An AI-powered smart meter tariff guard that helps Indian households understand meter readings,
+              projected usage, bill risk, and practical ways to avoid expensive slab jumps.
+            </p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+                <ul>
+                  <li>Built for the INDIA.RUNS 2026 Ideathon, Challenge 3: Improve Everyday Life with AI, as part of team Noble Dawn.</li>
+                  <li>Implemented a protected dashboard flow where users can upload or capture meter photos/videos, store captures in Supabase Storage, and track reading history.</li>
+                  <li>Integrated Gemini OCR to extract cumulative kWh readings, then calculated current usage, projected month-end usage, next slab distance, estimated bill, and bill-risk level.</li>
+                  <li>Generated household-friendly Gemini advice tied to projection numbers, tariff slabs, and practical load actions before usage crosses expensive thresholds.</li>
+                  <li>Used Supabase Auth, Database, Storage, Realtime, RLS policies, Rajasthan tariff seed data, and Vercel deployment for a realistic AI product workflow.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://shockproof.vercel.app" target="_blank" rel="noreferrer">Live site</a>
+                  <a href="https://github.com/saatvikraghuvanshi-lab/ShockProof" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+                <details class="project-gallery">
+                  <summary>Gallery <span>5 UI screens</span></summary>
+                  <div class="gallery-grid" data-gallery="ShockProof">
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/shockproof/shockproof-dashboard.png" aria-label="Open ShockProof dashboard screen">
+                      <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="ShockProof dashboard with meter reading insights and tariff risk summary" loading="lazy" />
+                      <span>Dashboard</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/shockproof/shockproof-capture.png" aria-label="Open ShockProof capture screen">
+                      <img src="assets/projects/shockproof/shockproof-capture.png" alt="ShockProof capture flow for smart meter photo and video uploads" loading="lazy" />
+                      <span>Capture</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/shockproof/shockproof-projection.png" aria-label="Open ShockProof projection screen">
+                      <img src="assets/projects/shockproof/shockproof-projection.png" alt="ShockProof usage projection and bill-risk interface" loading="lazy" />
+                      <span>Projection</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/shockproof/shockproof-history.png" aria-label="Open ShockProof history screen">
+                      <img src="assets/projects/shockproof/shockproof-history.png" alt="ShockProof reading history and correction fallback view" loading="lazy" />
+                      <span>History</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/shockproof/shockproof-advice.png" aria-label="Open ShockProof AI advice screen">
+                      <img src="assets/projects/shockproof/shockproof-advice.png" alt="ShockProof Gemini advice view with practical household savings guidance" loading="lazy" />
+                      <span>AI advice</span>
+                    </button>
+                  </div>
+                  <p class="gallery-empty">ShockProof screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
+                </details>
+              </div>
+            </details>
+          </article>
           <article class="project-card" data-added="2026-06-05">
             <div class="project-preview">
               <img src="assets/projects/s2c/s2c-signin.png" alt="S2C dark-mode sign-in preview with Google authentication" loading="lazy" />

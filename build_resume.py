@@ -201,6 +201,13 @@ def main():
         p.add_run(value)
 
     add_heading(doc, "Projects")
+    add_role_line(doc, "ShockProof - AI Smart Meter Tariff Guard", "Live: https://shockproof.vercel.app")
+    add_bullet(doc, "Built an AI-powered smart meter tariff guard for Indian households using Next.js, React, TypeScript, Tailwind CSS, Supabase Auth/Database/Storage/Realtime, Gemini OCR, and Vercel.")
+    add_bullet(doc, "Implemented meter photo/video capture, secure Supabase Storage uploads, protected dashboard flows, reading history, manual correction fallback, and realtime status updates.")
+    add_bullet(doc, "Integrated Gemini OCR to extract cumulative kWh readings and generated projection-aware household advice based on current usage, month-end projections, tariff slab distance, estimated bill, and bill-risk level.")
+    add_bullet(doc, "Built for the INDIA.RUNS 2026 Ideathon, Challenge 3: Improve Everyday Life with AI, as part of team Noble Dawn.")
+    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/ShockProof")
+
     add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project", "Live: https://ai-saa-s-sketch-to-design.vercel.app")
     add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, React, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, Radix UI, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
     add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
@@ -233,6 +240,7 @@ def main():
     add_bullet(doc, "Currently building foundational cloud computing knowledge aligned with cloud engineering internships, deployment workflows, backend services, and infrastructure fundamentals.")
 
     add_heading(doc, "Achievements and Certifications")
+    add_bullet(doc, "INDIA.RUNS 2026 Ideathon - Built ShockProof for Challenge 3: Improve Everyday Life with AI as part of team Noble Dawn.")
     add_bullet(doc, "Startup Forge Ideathon - 4th Place Finisher, GCEC Global Foundation; recognized for developing ResilienceOS during a 48-hour build.")
     add_bullet(doc, "Career Guidance Session: Artificial Intelligence and Prompt Engineering - GradGuru Innovations.")
     add_bullet(doc, "Technical workshops and hackathons: Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, and Machine Learning Workshop at Times Technoxian 2019.")
