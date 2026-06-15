@@ -173,9 +173,9 @@ def configure_doc(doc):
     normal = styles["Normal"]
     normal.font.name = "Arial"
     normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    normal.font.size = Pt(8.65)
+    normal.font.size = Pt(9.6)
     normal.font.color.rgb = RGBColor(0, 0, 0)
-    normal.paragraph_format.space_after = Pt(1.2)
+    normal.paragraph_format.space_after = Pt(1.35)
     normal.paragraph_format.line_spacing = 1.0
 
     for name in ("Resume Heading", "Resume Role", "Resume Bullet", "Resume Pair"):
@@ -187,37 +187,37 @@ def configure_doc(doc):
     heading.base_style = normal
     heading.font.name = "Arial"
     heading._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    heading.font.size = Pt(9.75)
+    heading.font.size = Pt(10.8)
     heading.font.bold = True
-    heading.paragraph_format.space_before = Pt(4.2)
-    heading.paragraph_format.space_after = Pt(1.2)
+    heading.paragraph_format.space_before = Pt(4.7)
+    heading.paragraph_format.space_after = Pt(1.35)
     heading.paragraph_format.line_spacing = 1.0
 
     role = styles["Resume Role"]
     role.base_style = normal
     role.font.name = "Arial"
     role._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    role.font.size = Pt(8.75)
-    role.paragraph_format.space_before = Pt(1.4)
-    role.paragraph_format.space_after = Pt(0.4)
+    role.font.size = Pt(9.55)
+    role.paragraph_format.space_before = Pt(1.6)
+    role.paragraph_format.space_after = Pt(0.55)
     role.paragraph_format.line_spacing = 1.0
 
     bullet = styles["Resume Bullet"]
     bullet.base_style = normal
     bullet.font.name = "Arial"
     bullet._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    bullet.font.size = Pt(8.15)
+    bullet.font.size = Pt(8.95)
     bullet.paragraph_format.left_indent = Inches(0.12)
     bullet.paragraph_format.first_line_indent = Inches(-0.12)
-    bullet.paragraph_format.space_after = Pt(0.5)
+    bullet.paragraph_format.space_after = Pt(0.65)
     bullet.paragraph_format.line_spacing = 0.98
 
     pair = styles["Resume Pair"]
     pair.base_style = normal
     pair.font.name = "Arial"
     pair._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    pair.font.size = Pt(8.15)
-    pair.paragraph_format.space_after = Pt(0.6)
+    pair.font.size = Pt(8.95)
+    pair.paragraph_format.space_after = Pt(0.75)
     pair.paragraph_format.line_spacing = 0.98
 
 
@@ -247,26 +247,26 @@ def add_contact_line(doc):
     for index, (text, url) in enumerate(RESUME["contact"]):
         if index:
             r = p.add_run(" | ")
-            set_run_font(r, size=8)
+            set_run_font(r, size=8.35)
         if url:
             set_link(p, text, url)
         else:
             r = p.add_run(text)
-            set_run_font(r, size=8)
+            set_run_font(r, size=8.35)
 
 
 def add_role(doc, role):
     p = doc.add_paragraph(style="Resume Role")
     p.paragraph_format.keep_with_next = True
     title = p.add_run(role["title"])
-    set_run_font(title, size=8.35, bold=True)
+    set_run_font(title, size=8.75, bold=True)
     if role.get("meta"):
         meta = p.add_run(f" | {role['meta']}")
-        set_run_font(meta, size=7.85)
+        set_run_font(meta, size=8.25)
     for bullet in role.get("bullets", []):
         b = doc.add_paragraph(style="Resume Bullet")
         run = b.add_run("- " + bullet)
-        set_run_font(run, size=7.85)
+        set_run_font(run, size=8.25)
 
 
 def build_docx():
@@ -277,34 +277,34 @@ def build_docx():
     name.alignment = WD_ALIGN_PARAGRAPH.CENTER
     name.paragraph_format.space_after = Pt(0)
     r = name.add_run(RESUME["name"].upper())
-    set_run_font(r, size=15.5, bold=True)
+    set_run_font(r, size=16.4, bold=True)
 
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
     title.paragraph_format.space_after = Pt(1)
     r = title.add_run(RESUME["headline"])
-    set_run_font(r, size=8.4)
+    set_run_font(r, size=8.8)
     add_contact_line(doc)
 
     for section in RESUME["sections"]:
         add_heading(doc, section["heading"])
         for paragraph in section.get("paragraphs", []):
             p = doc.add_paragraph()
-            p.paragraph_format.space_after = Pt(1.2)
+            p.paragraph_format.space_after = Pt(1.35)
             run = p.add_run(paragraph)
-            set_run_font(run, size=8.05)
+            set_run_font(run, size=8.5)
         for label, value in section.get("pairs", []):
             p = doc.add_paragraph(style="Resume Pair")
             label_run = p.add_run(f"{label}: ")
-            set_run_font(label_run, size=7.9, bold=True)
+            set_run_font(label_run, size=8.3, bold=True)
             value_run = p.add_run(value)
-            set_run_font(value_run, size=7.9)
+            set_run_font(value_run, size=8.3)
         for role in section.get("roles", []):
             add_role(doc, role)
         for bullet in section.get("bullets", []):
             p = doc.add_paragraph(style="Resume Bullet")
             run = p.add_run("- " + bullet)
-            set_run_font(run, size=7.85)
+            set_run_font(run, size=8.25)
 
     doc.save(DOCX_OUT)
 
@@ -335,7 +335,7 @@ def build_pdf():
     y = page_h - margin_top
     c = canvas.Canvas(str(PDF_OUT), pagesize=letter)
 
-    def draw_lines(text, font="Helvetica", size=8.1, leading=8.95, indent=0, after=0.8):
+    def draw_lines(text, font="Helvetica", size=9.25, leading=10.35, indent=0, after=0.85):
         nonlocal y
         lines = wrap_text(text, font, size, width - indent)
         for line in lines:
@@ -348,44 +348,44 @@ def build_pdf():
 
     c.setTitle("Saatvik Raghuvanshi Resume")
     c.setAuthor("Saatvik Raghuvanshi")
-    c.setFont("Helvetica-Bold", 16.2)
-    name_w = stringWidth(RESUME["name"].upper(), "Helvetica-Bold", 16.2)
+    c.setFont("Helvetica-Bold", 18.4)
+    name_w = stringWidth(RESUME["name"].upper(), "Helvetica-Bold", 18.4)
     c.drawString((page_w - name_w) / 2, y, RESUME["name"].upper())
-    y -= 14
+    y -= 15.5
 
-    c.setFont("Helvetica", 8.75)
-    head_w = stringWidth(RESUME["headline"], "Helvetica", 8.75)
+    c.setFont("Helvetica", 9.85)
+    head_w = stringWidth(RESUME["headline"], "Helvetica", 9.85)
     c.drawString((page_w - head_w) / 2, y, RESUME["headline"])
-    y -= 11
+    y -= 12.4
 
     contact = " | ".join(item[0] for item in RESUME["contact"])
-    c.setFont("Helvetica", 7.95)
-    for line in wrap_text(contact, "Helvetica", 7.95, width):
-        line_w = stringWidth(line, "Helvetica", 7.6)
+    c.setFont("Helvetica", 9.0)
+    for line in wrap_text(contact, "Helvetica", 9.0, width):
+        line_w = stringWidth(line, "Helvetica", 9.0)
         c.drawString((page_w - line_w) / 2, y, line)
-        y -= 8.6
+        y -= 9.85
     y -= 2
 
     for section in RESUME["sections"]:
         y -= 2.2
-        c.setFont("Helvetica-Bold", 9.3)
+        c.setFont("Helvetica-Bold", 10.8)
         c.drawString(margin_x, y, section["heading"])
         c.line(margin_x, y - 1.8, page_w - margin_x, y - 1.8)
-        y -= 9.0
+        y -= 10.75
 
         for paragraph in section.get("paragraphs", []):
-            draw_lines(paragraph, "Helvetica", 7.9, 8.7, after=0.8)
+            draw_lines(paragraph, "Helvetica", 9.35, 10.55, after=0.95)
         for label, value in section.get("pairs", []):
-            draw_lines(f"{label}: {value}", "Helvetica", 7.75, 8.45, after=0.2)
+            draw_lines(f"{label}: {value}", "Helvetica", 9.15, 10.25, after=0.3)
         for role in section.get("roles", []):
             line = role["title"]
             if role.get("meta"):
                 line += f" | {role['meta']}"
-            draw_lines(line, "Helvetica-Bold", 8.0, 8.7, after=0.1)
+            draw_lines(line, "Helvetica-Bold", 9.35, 10.45, after=0.2)
             for bullet in role.get("bullets", []):
-                draw_lines("- " + bullet, "Helvetica", 7.65, 8.4, indent=8, after=0.2)
+                draw_lines("- " + bullet, "Helvetica", 9.05, 10.2, indent=8, after=0.3)
         for bullet in section.get("bullets", []):
-            draw_lines("- " + bullet, "Helvetica", 7.65, 8.4, indent=8, after=0.2)
+            draw_lines("- " + bullet, "Helvetica", 9.05, 10.2, indent=8, after=0.3)
 
     c.showPage()
     c.save()
