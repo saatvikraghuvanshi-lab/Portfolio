@@ -18,7 +18,7 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="stylesheet" href="styles.css?v=14" />
+    <link rel="stylesheet" href="styles.css?v=15" />
   </head>
   <body>
     <header class="site-header">
@@ -70,26 +70,36 @@
               </div>
             </div>
           </div>
-          <aside class="hero-showcase" aria-label="Recent project previews">
+          <aside class="hero-showcase" aria-label="Recent project queue">
             <div class="showcase-header">
               <span>Project queue</span>
               <strong>Newest work first</strong>
             </div>
-            <div class="showcase-frame showcase-main">
+            <a class="queue-feature" href="#projects" aria-label="View ShockProof project">
+              <span class="queue-label">Latest</span>
               <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="" />
-              <span>ShockProof: AI meter tariff guard</span>
+              <span class="queue-copy">
+                <strong>ShockProof</strong>
+                <small>AI meter tariff guard for INDIA RUNS 2026.</small>
+              </span>
+            </a>
+            <div class="queue-list" aria-label="Recently added projects">
+              <a class="queue-item" href="#projects">
+                <span>01</span>
+                <strong>S2C / FramePilot</strong>
+                <small>AI SaaS learning build</small>
+              </a>
+              <a class="queue-item" href="#projects">
+                <span>02</span>
+                <strong>VibeBatch</strong>
+                <small>Freelance social web app</small>
+              </a>
+              <a class="queue-item" href="#projects">
+                <span>03</span>
+                <strong>ResilienceOS</strong>
+                <small>College ideathon build</small>
+              </a>
             </div>
-            <div class="showcase-strip" aria-label="More recent work">
-              <div class="showcase-frame">
-                <img src="assets/projects/s2c/s2c-canvas.png" alt="" />
-                <span>S2C</span>
-              </div>
-              <div class="showcase-frame">
-                <img src="assets/projects/vibebatch/vibebatch-dashboard.png" alt="" />
-                <span>VibeBatch</span>
-              </div>
-            </div>
-            <p class="showcase-note">Latest: ShockProof, an AI smart meter tariff guard for Indian households.</p>
           </aside>
         </div>
       </section>
@@ -100,19 +110,21 @@
           <h2 id="about-title">Building, learning, and testing ideas outside the classroom.</h2>
         </div>
         <div class="intro-copy">
-          <p>
-            I am a B.Tech CSE student at Manipal University Jaipur. Most of my learning happens through
-            building: hackathon ideas, ideathon prototypes, freelance websites, and small tools that help me
-            understand how real products work.
-          </p>
-          <p>
-            Alongside web development, I have explored drone building, line follower robots, AutoCAD, GIS map
-            integration, and cloud computing training. I like projects where I can learn something new, turn an
-            idea into a working demo, and improve it after seeing how people use it.
-          </p>
           <figure class="about-portrait">
             <img src="assets/profile.jpeg" alt="Saatvik Raghuvanshi" />
           </figure>
+          <div class="about-text">
+            <p>
+              I am a B.Tech CSE student at Manipal University Jaipur. Most of my learning happens through
+              building: hackathon ideas, ideathon prototypes, freelance websites, and small tools that help me
+              understand how real products work.
+            </p>
+            <p>
+              Alongside web development, I have explored drone building, line follower robots, AutoCAD, GIS map
+              integration, and cloud computing training. I like projects where I can learn something new, turn an
+              idea into a working demo, and improve it after seeing how people use it.
+            </p>
+          </div>
         </div>
       </section>
 
@@ -123,8 +135,8 @@
         </div>
 
         <div class="project-list">
-          <!-- Project cards are sorted newest-first by data-added in script.js. Add new projects with the latest ISO date. -->
-          <article class="project-card" data-added="2026-06-14">
+          <!-- Project cards are sorted newest-first by data-added in script.js. Add new projects with the latest ISO date so they appear first. -->
+          <article class="project-card" data-added="2026-06-14" data-context="Latest project for INDIA RUNS 2026 Ideathon Challenge 3: Improve Everyday Life with AI.">
             <div class="project-preview">
               <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="ShockProof dashboard preview showing AI meter reading and tariff risk insights" loading="lazy" />
             </div>
@@ -141,7 +153,7 @@
               <summary>Open project details</summary>
               <div class="project-detail-body">
                 <ul>
-                  <li>Built for the INDIA.RUNS 2026 Ideathon, Challenge 3: Improve Everyday Life with AI, as part of team Noble Dawn.</li>
+                  <li>Built for the INDIA RUNS 2026 Ideathon, Challenge 3: Improve Everyday Life with AI, as part of team Noble Dawn.</li>
                   <li>Implemented a protected dashboard flow where users can upload or capture meter photos/videos, store captures in Supabase Storage, and track reading history.</li>
                   <li>Integrated Gemini OCR to extract cumulative kWh readings, then calculated current usage, projected month-end usage, next slab distance, estimated bill, and bill-risk level.</li>
                   <li>Generated household-friendly Gemini advice tied to projection numbers, tariff slabs, and practical load actions before usage crosses expensive thresholds.</li>
@@ -180,7 +192,7 @@
               </div>
             </details>
           </article>
-          <article class="project-card" data-added="2026-06-05">
+          <article class="project-card" data-added="2026-06-05" data-context="Project-based learning build from the first week of June 2026, built to understand full-stack AI SaaS architecture.">
             <div class="project-preview">
               <img src="assets/projects/s2c/s2c-signin.png" alt="S2C dark-mode sign-in preview with Google authentication" loading="lazy" />
             </div>
@@ -197,7 +209,7 @@
               <summary>Open project details</summary>
               <div class="project-detail-body">
                 <ul>
-                  <li>Built a full-stack AI SaaS-style learning project to understand frontend, backend, authentication, database, storage, background workflows, AI routes, and interactive canvas tooling.</li>
+                  <li>Built in the first week of June 2026 as a full-stack AI SaaS-style learning project to understand frontend, backend, authentication, database, storage, background workflows, AI routes, and interactive canvas tooling.</li>
                   <li>Implemented project creation, an infinite canvas editor, frames, shapes, text, arrows, lines, free drawing, eraser tools, layers, selection, zoom, pan, and exports.</li>
                   <li>Integrated Convex, Convex Auth, Convex Storage, Inngest autosave workflows, Redux canvas state, and Gemini-compatible AI generation routes.</li>
                   <li>Created moodboard-to-style-guide, wireframe-to-generated-UI, workflow page generation, and generated frame export flows.</li>
@@ -244,7 +256,7 @@
               </div>
             </details>
           </article>
-          <article class="project-card" data-added="2026-06-04">
+          <article class="project-card" data-added="2026-06-04" data-context="Freelance full-stack social web app built in May 2026.">
             <div class="project-preview">
               <img src="assets/projects/vibebatch/vibebatch-signup.png" alt="VibeBatch signup preview with profile setup and account creation" loading="lazy" />
             </div>
@@ -261,6 +273,7 @@
               <summary>Open project details</summary>
               <div class="project-detail-body">
             <ul>
+              <li>Built as a freelance full-stack project in May 2026, covering frontend, backend, authentication, database design, and deployment.</li>
               <li>Architected relational PostgreSQL schemas for user profiles, friend relationships, trait voting, messages, story cards, and premium flows.</li>
               <li>Engineered data privacy patterns using Supabase Row Level Security for user-owned profile, relationship, message, and trait data.</li>
               <li>Implemented secure authentication, premium visual identity cards, invite/share flows, and product workflows with React/Vite, Supabase Auth, and database services.</li>
@@ -338,7 +351,7 @@
           </article>
 
 
-          <article class="project-card" data-added="2026-06-03">
+          <article class="project-card" data-added="2026-06-03" data-context="Built during a college ideathon on 30-31 January 2026 with team Codoholics; placed 4th overall.">
             <div class="project-preview">
               <img src="assets/projects/resilienceos/resilienceos-admin-map.png" alt="ResilienceOS tactical disaster response map preview" loading="lazy" />
             </div>
@@ -357,7 +370,7 @@
             <ul>
               <li>Built role-specific emergency workflows for admin command, responder tasks, civilian SOS reporting, and readiness training.</li>
               <li>Designed tactical dark-mode interfaces for map simulation, field deployment, resilience scoring, and strategic planning.</li>
-              <li>Recognized as a 4th place finisher during Startup Forge Ideathon's 48-hour intensive build.</li>
+              <li>Built during a college ideathon on 30-31 January 2026 with team Codoholics, where we placed 4th overall.</li>
             </ul>
             <div class="project-links">
               <a href="https://resilienceos.vercel.app/" target="_blank" rel="noreferrer">Live site</a>
@@ -402,7 +415,7 @@
           </article>
 
 
-          <article class="project-card" data-added="2026-06-02">
+          <article class="project-card" data-added="2026-06-02" data-context="Built in October 2025 during Rewind and Recode, a national-level hackathon; added to GitHub in January 2026.">
             <div class="project-preview">
               <img src="assets/projects/jansahayak/jansahayak-home.png" alt="JanSahayak government scheme discovery dashboard preview" loading="lazy" />
             </div>
@@ -419,15 +432,15 @@
               <summary>Open project details</summary>
               <div class="project-detail-body">
             <ul>
-              <li>Built during a college Vibeathon as my first serious attempt at vibe coding and rapid product prototyping.</li>
-              <li>Placed in the top 5 with a working demo covering login, scheme discovery, filters, and an AI assistant flow.</li>
+              <li>Built in October 2025 during Rewind and Recode, a national-level hackathon, as an AI-assisted civic-tech prototype.</li>
+              <li>Added to GitHub in January 2026 after polishing the login, scheme discovery, filters, dashboard, and AI assistant flow.</li>
               <li>Focused on frontend, UI/UX, accessibility, and clear civic-service navigation for everyday users.</li>
             </ul>
             <div class="project-links">
               <a href="https://jansahayak1.netlify.app/" target="_blank" rel="noreferrer">Live site</a>
             </div>
             <details class="project-gallery">
-              <summary>Gallery <span>4 UI screens</span></summary>
+              <summary>Gallery <span>5 screens + certificate</span></summary>
               <div class="gallery-grid" data-gallery="JanSahayak">
                 <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-login.png" aria-label="Open JanSahayak login screen">
                   <img src="assets/projects/jansahayak/jansahayak-login.png" alt="JanSahayak login screen for government benefits assistant" loading="lazy" />
@@ -445,6 +458,10 @@
                   <img src="assets/projects/jansahayak/jansahayak-ai-assistant.png" alt="JanSahayak AI assistant chat for government scheme guidance" loading="lazy" />
                   <span>AI assistant</span>
                 </button>
+                <button class="gallery-thumb" type="button" data-full="assets/projects/jansahayak/jansahayak-rewind-recode-certificate.png" aria-label="Open Rewind and Recode participation certificate">
+                  <img src="assets/projects/jansahayak/jansahayak-rewind-recode-certificate.png" alt="Rewind and Recode national-level hackathon certificate of participation" loading="lazy" />
+                  <span>Certificate</span>
+                </button>
               </div>
               <p class="gallery-empty">JanSahayak screenshots are wired in. Add the image files to the matching asset paths to display them.</p>
             </details>
@@ -453,7 +470,7 @@
           </article>
 
 
-          <article class="project-card" data-added="2026-06-01">
+          <article class="project-card" data-added="2026-06-01" data-context="Built in November 2025 during an online hackathon found through Hacks2Skill.">
             <div class="project-preview">
               <img src="assets/projects/terrapulse/terrapulse-satellite.png" alt="TerraPulse satellite GIS field dashboard preview" loading="lazy" />
             </div>
@@ -470,8 +487,9 @@
               <summary>Open project details</summary>
               <div class="project-detail-body">
             <ul>
-              <li>Built and deployed a map/data-oriented interface.</li>
-              <li>Explored how technical location data can become usable web experiences.</li>
+              <li>Built in November 2025 during an online hackathon found through Hacks2Skill.</li>
+              <li>Developed a GIS-oriented web interface focused on map-based field visualization, satellite imagery views, and rural dashboard workflows.</li>
+              <li>Explored how technical location data can become usable web experiences through clear navigation, metrics, and analytics screens.</li>
             </ul>
             <div class="project-links">
               <a href="https://terrapulsepro1.netlify.app/" target="_blank" rel="noreferrer">Live site</a>
@@ -644,6 +662,19 @@
               </svg>
               <span>GitHub</span>
             </a>
+            <form class="contact-note" id="contact-note-form">
+              <label for="contact-topic">Quick note</label>
+              <div class="contact-note-row">
+                <select id="contact-topic" name="topic" aria-label="Message topic">
+                  <option>Internship opportunity</option>
+                  <option>Freelance website</option>
+                  <option>Hackathon collaboration</option>
+                  <option>Project feedback</option>
+                </select>
+                <button type="submit">Draft email</button>
+              </div>
+              <textarea id="contact-message" name="message" rows="4" placeholder="Write a short note and I will reply from mail."></textarea>
+            </form>
           </div>
         </div>
       </section>
@@ -667,6 +698,6 @@
       </div>
     </footer>
 
-    <script src="script.js?v=10"></script>
+    <script src="script.js?v=11"></script>
   </body>
 </html>

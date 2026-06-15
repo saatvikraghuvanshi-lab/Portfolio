@@ -1,16 +1,143 @@
+from pathlib import Path
+
 from docx import Document
 from docx.enum.text import WD_ALIGN_PARAGRAPH
-from docx.enum.section import WD_SECTION
 from docx.oxml import OxmlElement
 from docx.oxml.ns import qn
 from docx.shared import Inches, Pt, RGBColor
+from reportlab.lib.pagesizes import letter
+from reportlab.lib.units import inch
+from reportlab.pdfbase.pdfmetrics import stringWidth
+from reportlab.pdfgen import canvas
 
 
-OUT = "Saatvik_Raghuvanshi_Resume_ATS.docx"
+DOCX_OUT = Path("Saatvik_Raghuvanshi_Resume_ATS.docx")
+PDF_OUT = Path("Saatvik_Raghuvanshi_Resume_ATS.pdf")
 
 
-def set_cell_text(cell, text):
-    cell.text = text
+RESUME = {
+    "name": "Saatvik Raghuvanshi",
+    "headline": "B.Tech CSE Student | Full-Stack Developer | Cloud Engineering Aspirant",
+    "contact": [
+        ("Jaipur, Rajasthan, India", None),
+        ("+91 9301661150", None),
+        ("raghuvanshisaatvik@gmail.com", "mailto:raghuvanshisaatvik@gmail.com"),
+        ("linkedin.com/in/saatvik-raghuvanshi", "https://www.linkedin.com/in/saatvik-raghuvanshi"),
+        ("github.com/saatvikraghuvanshi-lab", "https://github.com/saatvikraghuvanshi-lab"),
+    ],
+    "sections": [
+        {
+            "heading": "SUMMARY",
+            "paragraphs": [
+                "Computer Science undergraduate at Manipal University Jaipur with hands-on experience building deployed full-stack web applications, AI-assisted workflows, Supabase/PostgreSQL backends, and frontend-focused product interfaces. Comfortable working across React, Next.js, TypeScript, Tailwind CSS, authentication, database design, cloud deployment, and practical UI/UX through hackathons, ideathons, freelance work, and project-based learning.",
+            ],
+        },
+        {
+            "heading": "TECHNICAL SKILLS",
+            "pairs": [
+                ("Languages", "C, Python, TypeScript, JavaScript, HTML, CSS"),
+                ("Frontend", "React.js, Next.js, Tailwind CSS, shadcn/ui, Radix UI, Redux, responsive UI/UX"),
+                ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, REST APIs, authentication, Row Level Security"),
+                ("AI, Cloud and Tools", "Gemini API, Inngest, Firebase, Google Cloud, Vercel, Netlify, Git, GitHub, ngrok"),
+                ("Other Technical Skills", "AutoCAD, drone building, line follower robots, GIS map integration, robotics fundamentals"),
+            ],
+        },
+        {
+            "heading": "EDUCATION",
+            "roles": [
+                {
+                    "title": "Manipal University Jaipur - B.Tech in Computer Science and Engineering",
+                    "meta": "Expected 2029 | Current GPA: 7.0",
+                    "bullets": [
+                        "Completed first year while building practical projects across web development, APIs, databases, AI workflows, UI/UX, and cloud-related tools.",
+                    ],
+                },
+                {
+                    "title": "Army Public School - Class 10: 86% | Resonance - Class 12: 82%",
+                    "bullets": [
+                        "Built early technical exposure through robotics, drone building, line follower systems, and technical workshops.",
+                    ],
+                },
+            ],
+        },
+        {
+            "heading": "PROJECTS",
+            "roles": [
+                {
+                    "title": "ShockProof - AI Smart Meter Tariff Guard",
+                    "meta": "Live: https://shockproof.vercel.app | GitHub: github.com/saatvikraghuvanshi-lab/ShockProof",
+                    "bullets": [
+                        "Built an AI-powered electricity meter assistant for Indian households using Next.js, React, TypeScript, Tailwind CSS, Supabase Auth/Database/Storage/Realtime, Gemini OCR, and Vercel.",
+                        "Implemented secure meter photo/video uploads, reading history, manual correction fallback, kWh extraction, month-end usage projection, tariff slab distance, estimated bill, bill-risk level, and Gemini-generated household advice.",
+                    ],
+                },
+                {
+                    "title": "S2C - AI Sketch-to-Design Learning Project",
+                    "meta": "Live: https://ai-saa-s-sketch-to-design.vercel.app | GitHub: github.com/saatvikraghuvanshi-lab/Ai-SaaS-Sketch-To-Design",
+                    "bullets": [
+                        "Built a full-stack AI SaaS-style design tool with Google auth, project dashboard, infinite canvas editor, Redux canvas state, Convex database/auth/storage, Inngest autosave, Gemini API routes, PNG exports, and JSON exports.",
+                    ],
+                },
+                {
+                    "title": "VibeBatch - Social Personality Web Application",
+                    "meta": "Live: https://www.vibebatch.net | GitHub: github.com/saatvikraghuvanshi-lab/VibeBatch",
+                    "bullets": [
+                        "Architected Supabase/PostgreSQL data flows for user profiles, friend relationships, anonymous trait voting, messages, invite sharing, premium identity cards, Gemini help support, and Row Level Security-based privacy.",
+                    ],
+                },
+                {
+                    "title": "ResilienceOS - Disaster Management Web Platform",
+                    "meta": "Live: https://resilienceos.vercel.app | GitHub: github.com/saatvikraghuvanshi-lab/RESILIENCEOS",
+                    "bullets": [
+                        "Built role-based disaster-response workflows for admin command, responder tasks, civilian SOS reporting, map simulation, readiness training, strategic forecasting, and report generation; recognized as a 4th place Startup Forge Ideathon project.",
+                    ],
+                },
+                {
+                    "title": "JanSahayak - AI Public Assistance Web Application",
+                    "meta": "Live: https://jansahayak1.netlify.app",
+                    "bullets": [
+                        "Developed a civic-tech prototype for a college Vibeathon covering login, scheme discovery, filters, user dashboard, and AI assistant flow; placed in the top 5.",
+                    ],
+                },
+            ],
+        },
+        {
+            "heading": "EXPERIENCE",
+            "roles": [
+                {
+                    "title": "Freelance Full-Stack Developer - VibeBatch",
+                    "bullets": [
+                        "Delivered a live freelance web product with frontend implementation, Supabase-backed workflows, authentication, database design, deployment readiness, and product UI refinement.",
+                    ],
+                },
+                {
+                    "title": "Cloud Computing Training - Training Phase",
+                    "bullets": [
+                        "Building foundational cloud computing knowledge aligned with cloud engineering internships, deployment workflows, backend services, and infrastructure fundamentals.",
+                    ],
+                },
+            ],
+        },
+        {
+            "heading": "ACHIEVEMENTS AND CERTIFICATIONS",
+            "bullets": [
+                "INDIA.RUNS 2026 Ideathon: Built ShockProof for Challenge 3, Improve Everyday Life with AI, as part of team Noble Dawn.",
+                "Startup Forge Ideathon: 4th Place Finisher, GCEC Global Foundation, for ResilienceOS during a 48-hour build.",
+                "Technical workshops and hackathons: Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, Machine Learning Workshop, and AI/Prompt Engineering career session.",
+            ],
+        },
+    ],
+}
+
+
+def set_run_font(run, name="Arial", size=None, bold=None, color="000000"):
+    run.font.name = name
+    run._element.rPr.rFonts.set(qn("w:eastAsia"), name)
+    if size is not None:
+        run.font.size = Pt(size)
+    if bold is not None:
+        run.bold = bold
+    run.font.color.rgb = RGBColor.from_string(color)
 
 
 def set_link(paragraph, text, url):
@@ -25,11 +152,8 @@ def set_link(paragraph, text, url):
     run = OxmlElement("w:r")
     r_pr = OxmlElement("w:rPr")
     color = OxmlElement("w:color")
-    color.set(qn("w:val"), "0563C1")
+    color.set(qn("w:val"), "000000")
     r_pr.append(color)
-    underline = OxmlElement("w:u")
-    underline.set(qn("w:val"), "single")
-    r_pr.append(underline)
     run.append(r_pr)
     text_node = OxmlElement("w:t")
     text_node.text = text
@@ -38,214 +162,240 @@ def set_link(paragraph, text, url):
     paragraph._p.append(hyperlink)
 
 
-def add_hyperlink_line(doc, items):
-    p = doc.add_paragraph()
-    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    for index, item in enumerate(items):
-        if index:
-            p.add_run(" | ")
-        if isinstance(item, tuple):
-            set_link(p, item[0], item[1])
-        else:
-            p.add_run(item)
-
-
-def add_heading(doc, text):
-    p = doc.add_paragraph()
-    p.style = "Resume Heading"
-    p.add_run(text.upper())
-    p.paragraph_format.keep_with_next = True
-
-
-def add_bullet(doc, text):
-    p = doc.add_paragraph(style="Resume Bullet")
-    p.add_run("- " + text)
-
-
-def add_role_line(doc, left, right=None):
-    p = doc.add_paragraph()
-    p.style = "Resume Role"
-    p.paragraph_format.keep_with_next = True
-    p.add_run(left).bold = True
-    if right:
-        tab_stops = p.paragraph_format.tab_stops
-        tab_stops.add_tab_stop(Inches(6.7), WD_ALIGN_PARAGRAPH.RIGHT)
-        p.add_run("\t" + right)
-
-
-def set_document_defaults(doc):
+def configure_doc(doc):
     section = doc.sections[0]
-    section.top_margin = Inches(0.55)
-    section.bottom_margin = Inches(0.55)
-    section.left_margin = Inches(0.65)
-    section.right_margin = Inches(0.65)
+    section.top_margin = Inches(0.38)
+    section.bottom_margin = Inches(0.35)
+    section.left_margin = Inches(0.45)
+    section.right_margin = Inches(0.45)
 
     styles = doc.styles
     normal = styles["Normal"]
     normal.font.name = "Arial"
     normal._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    normal.font.size = Pt(10)
+    normal.font.size = Pt(8.65)
     normal.font.color.rgb = RGBColor(0, 0, 0)
-    normal.paragraph_format.space_after = Pt(3)
-    normal.paragraph_format.line_spacing = 1.08
+    normal.paragraph_format.space_after = Pt(1.2)
+    normal.paragraph_format.line_spacing = 1.0
 
-    heading = styles.add_style("Resume Heading", 1)
+    for name in ("Resume Heading", "Resume Role", "Resume Bullet", "Resume Pair"):
+        if name in styles:
+            continue
+        styles.add_style(name, 1)
+
+    heading = styles["Resume Heading"]
     heading.base_style = normal
     heading.font.name = "Arial"
     heading._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    heading.font.size = Pt(10.5)
+    heading.font.size = Pt(9.75)
     heading.font.bold = True
-    heading.font.color.rgb = RGBColor(0, 0, 0)
-    heading.paragraph_format.space_before = Pt(8)
-    heading.paragraph_format.space_after = Pt(2)
+    heading.paragraph_format.space_before = Pt(4.2)
+    heading.paragraph_format.space_after = Pt(1.2)
     heading.paragraph_format.line_spacing = 1.0
 
-    role = styles.add_style("Resume Role", 1)
+    role = styles["Resume Role"]
     role.base_style = normal
     role.font.name = "Arial"
     role._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    role.font.size = Pt(10)
-    role.paragraph_format.space_before = Pt(2)
-    role.paragraph_format.space_after = Pt(1)
+    role.font.size = Pt(8.75)
+    role.paragraph_format.space_before = Pt(1.4)
+    role.paragraph_format.space_after = Pt(0.4)
     role.paragraph_format.line_spacing = 1.0
 
-    bullet = styles.add_style("Resume Bullet", 1)
+    bullet = styles["Resume Bullet"]
     bullet.base_style = normal
     bullet.font.name = "Arial"
     bullet._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    bullet.font.size = Pt(9.5)
-    bullet.paragraph_format.left_indent = Inches(0.18)
-    bullet.paragraph_format.first_line_indent = Inches(-0.18)
-    bullet.paragraph_format.space_after = Pt(2)
-    bullet.paragraph_format.line_spacing = 1.04
+    bullet.font.size = Pt(8.15)
+    bullet.paragraph_format.left_indent = Inches(0.12)
+    bullet.paragraph_format.first_line_indent = Inches(-0.12)
+    bullet.paragraph_format.space_after = Pt(0.5)
+    bullet.paragraph_format.line_spacing = 0.98
+
+    pair = styles["Resume Pair"]
+    pair.base_style = normal
+    pair.font.name = "Arial"
+    pair._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
+    pair.font.size = Pt(8.15)
+    pair.paragraph_format.space_after = Pt(0.6)
+    pair.paragraph_format.line_spacing = 0.98
 
 
-def add_section_rule(paragraph):
+def add_rule(paragraph):
     p_pr = paragraph._p.get_or_add_pPr()
     p_bdr = OxmlElement("w:pBdr")
     bottom = OxmlElement("w:bottom")
     bottom.set(qn("w:val"), "single")
-    bottom.set(qn("w:sz"), "6")
+    bottom.set(qn("w:sz"), "4")
     bottom.set(qn("w:space"), "1")
     bottom.set(qn("w:color"), "000000")
     p_bdr.append(bottom)
     p_pr.append(p_bdr)
 
 
-def main():
+def add_heading(doc, text):
+    p = doc.add_paragraph(style="Resume Heading")
+    p.paragraph_format.keep_with_next = True
+    p.add_run(text)
+    add_rule(p)
+
+
+def add_contact_line(doc):
+    p = doc.add_paragraph()
+    p.alignment = WD_ALIGN_PARAGRAPH.CENTER
+    p.paragraph_format.space_after = Pt(3)
+    for index, (text, url) in enumerate(RESUME["contact"]):
+        if index:
+            r = p.add_run(" | ")
+            set_run_font(r, size=8)
+        if url:
+            set_link(p, text, url)
+        else:
+            r = p.add_run(text)
+            set_run_font(r, size=8)
+
+
+def add_role(doc, role):
+    p = doc.add_paragraph(style="Resume Role")
+    p.paragraph_format.keep_with_next = True
+    title = p.add_run(role["title"])
+    set_run_font(title, size=8.35, bold=True)
+    if role.get("meta"):
+        meta = p.add_run(f" | {role['meta']}")
+        set_run_font(meta, size=7.85)
+    for bullet in role.get("bullets", []):
+        b = doc.add_paragraph(style="Resume Bullet")
+        run = b.add_run("- " + bullet)
+        set_run_font(run, size=7.85)
+
+
+def build_docx():
     doc = Document()
-    set_document_defaults(doc)
+    configure_doc(doc)
 
     name = doc.add_paragraph()
     name.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    name.paragraph_format.space_after = Pt(1)
-    run = name.add_run("SAATVIK RAGHUVANSHI")
-    run.bold = True
-    run.font.name = "Arial"
-    run._element.rPr.rFonts.set(qn("w:eastAsia"), "Arial")
-    run.font.size = Pt(17)
+    name.paragraph_format.space_after = Pt(0)
+    r = name.add_run(RESUME["name"].upper())
+    set_run_font(r, size=15.5, bold=True)
 
     title = doc.add_paragraph()
     title.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    title.paragraph_format.space_after = Pt(3)
-    title.add_run("B.Tech CSE Student | Full-Stack Developer | Cloud Engineering Aspirant")
+    title.paragraph_format.space_after = Pt(1)
+    r = title.add_run(RESUME["headline"])
+    set_run_font(r, size=8.4)
+    add_contact_line(doc)
 
-    add_hyperlink_line(
-        doc,
-        [
-            "Jaipur, Rajasthan, India",
-            "9301661150",
-            "raghuvanshisaatvik@gmail.com",
-            ("linkedin.com/in/saatvik-raghuvanshi", "https://www.linkedin.com/in/saatvik-raghuvanshi"),
-            ("github.com/saatvikraghuvanshi-lab", "https://github.com/saatvikraghuvanshi-lab"),
-        ],
-    )
+    for section in RESUME["sections"]:
+        add_heading(doc, section["heading"])
+        for paragraph in section.get("paragraphs", []):
+            p = doc.add_paragraph()
+            p.paragraph_format.space_after = Pt(1.2)
+            run = p.add_run(paragraph)
+            set_run_font(run, size=8.05)
+        for label, value in section.get("pairs", []):
+            p = doc.add_paragraph(style="Resume Pair")
+            label_run = p.add_run(f"{label}: ")
+            set_run_font(label_run, size=7.9, bold=True)
+            value_run = p.add_run(value)
+            set_run_font(value_run, size=7.9)
+        for role in section.get("roles", []):
+            add_role(doc, role)
+        for bullet in section.get("bullets", []):
+            p = doc.add_paragraph(style="Resume Bullet")
+            run = p.add_run("- " + bullet)
+            set_run_font(run, size=7.85)
 
-    p = doc.add_paragraph()
-    p.paragraph_format.space_before = Pt(4)
-    add_section_rule(p)
+    doc.save(DOCX_OUT)
 
-    add_heading(doc, "Summary")
-    doc.add_paragraph(
-        "B.Tech Computer Science student with hands-on experience building full-stack web applications, "
-        "frontend interfaces, database-backed projects, AI-assisted workflows, and deployed portfolio projects. "
-        "Experienced with React, Next.js, TypeScript, Supabase, PostgreSQL, Convex, Tailwind CSS, Git, GitHub, "
-        "and Vercel through hackathons, ideathons, freelance work, and project-based learning."
-    )
 
-    add_heading(doc, "Target Roles")
-    doc.add_paragraph(
-        "Cloud Engineer Intern, Full-Stack Developer Intern, Frontend Developer Intern, Web Developer Intern, "
-        "Software Engineering Intern, Freelance Web Developer"
-    )
+def wrap_text(text, font, size, width):
+    words = text.split()
+    lines = []
+    current = ""
+    for word in words:
+        test = word if not current else f"{current} {word}"
+        if stringWidth(test, font, size) <= width:
+            current = test
+        else:
+            if current:
+                lines.append(current)
+            current = word
+    if current:
+        lines.append(current)
+    return lines or [""]
 
-    add_heading(doc, "Education")
-    add_role_line(doc, "Manipal University Jaipur - B.Tech in Computer Science and Engineering", "Expected 2029")
-    add_bullet(doc, "Current GPA: 7.0; completed first year coursework while building practical projects in full-stack development, APIs, UI/UX, databases, and cloud-related tools.")
-    add_role_line(doc, "Army Public School - Class 10: 86% | Resonance - Class 12: 82%")
-    add_bullet(doc, "Academic background supported by early exposure to robotics, drone building, line follower systems, and technical workshops.")
 
-    add_heading(doc, "Technical Skills")
-    skills = [
-        ("Languages", "C, Python, TypeScript, HTML"),
-        ("Frontend", "React.js, Next.js, TypeScript, JavaScript, Redux, Tailwind CSS, shadcn/ui, Radix UI, HTML, CSS, responsive web design, UI/UX"),
-        ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, Convex Auth, Convex Storage, relational data modeling, Row Level Security (RLS), REST APIs, authentication"),
-        ("Cloud, AI, and Workflows", "Google Cloud, Firebase, Gemini API, Inngest, cloud computing training, AI prompting, background jobs, deployment workflows"),
-        ("Developer Tools", "Git, GitHub, GitHub Docs, Vercel, Netlify, ngrok, Google Stitch, OpenAI Codex"),
-        ("Additional Technical Skills", "AutoCAD, drone building, line follower robots, GIS map integration, robotics fundamentals, analytical problem solving"),
-    ]
-    for label, value in skills:
-        p = doc.add_paragraph()
-        p.paragraph_format.space_after = Pt(1)
-        p.add_run(f"{label}: ").bold = True
-        p.add_run(value)
+def build_pdf():
+    page_w, page_h = letter
+    margin_x = 0.45 * inch
+    margin_top = 0.34 * inch
+    margin_bottom = 0.30 * inch
+    width = page_w - 2 * margin_x
+    y = page_h - margin_top
+    c = canvas.Canvas(str(PDF_OUT), pagesize=letter)
 
-    add_heading(doc, "Projects")
-    add_role_line(doc, "ShockProof - AI Smart Meter Tariff Guard", "Live: https://shockproof.vercel.app")
-    add_bullet(doc, "Built an AI-powered smart meter tariff guard for Indian households using Next.js, React, TypeScript, Tailwind CSS, Supabase Auth/Database/Storage/Realtime, Gemini OCR, and Vercel.")
-    add_bullet(doc, "Implemented meter photo/video capture, secure Supabase Storage uploads, protected dashboard flows, reading history, manual correction fallback, and realtime status updates.")
-    add_bullet(doc, "Integrated Gemini OCR to extract cumulative kWh readings and generated projection-aware household advice based on current usage, month-end projections, tariff slab distance, estimated bill, and bill-risk level.")
-    add_bullet(doc, "Built for the INDIA.RUNS 2026 Ideathon, Challenge 3: Improve Everyday Life with AI, as part of team Noble Dawn.")
-    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/ShockProof")
+    def draw_lines(text, font="Helvetica", size=8.1, leading=8.95, indent=0, after=0.8):
+        nonlocal y
+        lines = wrap_text(text, font, size, width - indent)
+        for line in lines:
+            if y < margin_bottom + leading:
+                raise RuntimeError("Resume exceeded one PDF page")
+            c.setFont(font, size)
+            c.drawString(margin_x + indent, y, line)
+            y -= leading
+        y -= after
 
-    add_role_line(doc, "S2C - AI Sketch-to-Design Learning Project", "Live: https://ai-saa-s-sketch-to-design.vercel.app")
-    add_bullet(doc, "Built a full-stack AI SaaS-style design tool using Next.js, React, TypeScript, Convex, Inngest, Redux, Tailwind CSS, shadcn/ui, Radix UI, and Gemini API, covering authentication, projects, infinite canvas editing, autosave, and PNG/JSON exports.")
-    add_bullet(doc, "Implemented canvas tools including frames, shapes, text, free drawing, eraser, layers, selection, zoom, pan, and generated UI rendering.")
-    add_bullet(doc, "Integrated Convex database, Convex Auth, Convex Storage, Inngest, and Gemini-compatible API routes for database operations, authentication, file storage, background jobs, and AI workflow orchestration.")
-    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/Ai-SaaS-Sketch-To-Design")
+    c.setTitle("Saatvik Raghuvanshi Resume")
+    c.setAuthor("Saatvik Raghuvanshi")
+    c.setFont("Helvetica-Bold", 16.2)
+    name_w = stringWidth(RESUME["name"].upper(), "Helvetica-Bold", 16.2)
+    c.drawString((page_w - name_w) / 2, y, RESUME["name"].upper())
+    y -= 14
 
-    add_role_line(doc, "VibeBatch - Full-Stack Web Application", "Live: https://www.vibebatch.net/")
-    add_bullet(doc, "Architected relational PostgreSQL schemas in Supabase to support user profiles, friend relationships, trait voting, messages, story cards, and premium identity flows.")
-    add_bullet(doc, "Engineered data privacy and security patterns using Supabase Row Level Security (RLS) for user-owned profile, relationship, message, and trait data.")
-    add_bullet(doc, "Implemented secure user authentication and full-stack product workflows with a React/Vite frontend and Supabase Auth/database services.")
-    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/VibeBatch")
+    c.setFont("Helvetica", 8.75)
+    head_w = stringWidth(RESUME["headline"], "Helvetica", 8.75)
+    c.drawString((page_w - head_w) / 2, y, RESUME["headline"])
+    y -= 11
 
-    add_role_line(doc, "ResilienceOS - Disaster Management Web Platform", "Live: https://resilienceos.vercel.app/")
-    add_bullet(doc, "Built frontend and backend workflows for a unified disaster management system developed during Startup Forge Ideathon, including admin, responder, civilian, training, strategy, and report views.")
-    add_bullet(doc, "Modeled emergency-response data flows for map simulation, responder coordination, civilian SOS reporting, readiness training, and operational information access.")
-    add_bullet(doc, "GitHub: https://github.com/saatvikraghuvanshi-lab/RESILIENCEOS")
+    contact = " | ".join(item[0] for item in RESUME["contact"])
+    c.setFont("Helvetica", 7.95)
+    for line in wrap_text(contact, "Helvetica", 7.95, width):
+        line_w = stringWidth(line, "Helvetica", 7.6)
+        c.drawString((page_w - line_w) / 2, y, line)
+        y -= 8.6
+    y -= 2
 
-    add_role_line(doc, "JanSahayak - Public Assistance Web Application", "Live: https://jansahayak1.netlify.app/")
-    add_bullet(doc, "Developed and deployed a civic-help oriented web application for a college Vibeathon, using AI-assisted workflows to support government-scheme discovery and eligibility guidance.")
-    add_bullet(doc, "Placed in the top 5 with a working prototype covering login, scheme discovery, filters, user dashboards, and an AI assistant flow.")
+    for section in RESUME["sections"]:
+        y -= 2.2
+        c.setFont("Helvetica-Bold", 9.3)
+        c.drawString(margin_x, y, section["heading"])
+        c.line(margin_x, y - 1.8, page_w - margin_x, y - 1.8)
+        y -= 9.0
 
-    add_role_line(doc, "TerraPulse Pro - GIS-Oriented Web Application", "Live: https://terrapulsepro1.netlify.app/")
-    add_bullet(doc, "Built and deployed a GIS-oriented web application focused on map-based field visualization, satellite imagery views, NDVI-style analytics, and rural dashboard workflows.")
-    add_bullet(doc, "Strengthened experience in integrating geospatial data, map interfaces, technical metrics, and user-facing analytics into accessible web interfaces.")
+        for paragraph in section.get("paragraphs", []):
+            draw_lines(paragraph, "Helvetica", 7.9, 8.7, after=0.8)
+        for label, value in section.get("pairs", []):
+            draw_lines(f"{label}: {value}", "Helvetica", 7.75, 8.45, after=0.2)
+        for role in section.get("roles", []):
+            line = role["title"]
+            if role.get("meta"):
+                line += f" | {role['meta']}"
+            draw_lines(line, "Helvetica-Bold", 8.0, 8.7, after=0.1)
+            for bullet in role.get("bullets", []):
+                draw_lines("- " + bullet, "Helvetica", 7.65, 8.4, indent=8, after=0.2)
+        for bullet in section.get("bullets", []):
+            draw_lines("- " + bullet, "Helvetica", 7.65, 8.4, indent=8, after=0.2)
 
-    add_heading(doc, "Experience")
-    add_role_line(doc, "Freelance Full-Stack Developer - VibeBatch")
-    add_bullet(doc, "Delivered a live web product for a freelance project, handling full-stack development responsibilities, frontend implementation, database-backed workflows, and deployment readiness.")
-    add_role_line(doc, "Cloud Computing Training - Training Phase")
-    add_bullet(doc, "Currently building foundational cloud computing knowledge aligned with cloud engineering internships, deployment workflows, backend services, and infrastructure fundamentals.")
+    c.showPage()
+    c.save()
 
-    add_heading(doc, "Achievements and Certifications")
-    add_bullet(doc, "INDIA.RUNS 2026 Ideathon - Built ShockProof for Challenge 3: Improve Everyday Life with AI as part of team Noble Dawn.")
-    add_bullet(doc, "Startup Forge Ideathon - 4th Place Finisher, GCEC Global Foundation; recognized for developing ResilienceOS during a 48-hour build.")
-    add_bullet(doc, "Career Guidance Session: Artificial Intelligence and Prompt Engineering - GradGuru Innovations.")
-    add_bullet(doc, "Technical workshops and hackathons: Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, and Machine Learning Workshop at Times Technoxian 2019.")
 
-    doc.save(OUT)
+def main():
+    build_docx()
+    build_pdf()
+    print(f"Wrote {DOCX_OUT}")
+    print(f"Wrote {PDF_OUT}")
 
 
 if __name__ == "__main__":
