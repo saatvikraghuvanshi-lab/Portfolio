@@ -58,6 +58,14 @@ if (resumeDownload && resumeDownloadToggle && resumeDownloadMenu) {
 
 const projectList = document.querySelector(".project-list");
 const projectProfiles = {
+  "EcoCity Heat Planner": {
+    role: "Full-Stack Developer",
+    tech: ["React", "Vite", "Tailwind CSS", "Supabase", "PostgreSQL", "PostGIS", "Leaflet", "Mapbox"],
+  },
+  "Lunar Ice Intelligence": {
+    role: "Full-Stack Developer / Geospatial Engineer",
+    tech: ["Next.js", "Prisma", "Python", "Chandrayaan-2 DFSAR", "NASA LOLA", "OHRC", "TMC-2"],
+  },
   ShockProof: {
     role: "Full-Stack Developer",
     tech: ["Next.js", "Supabase", "PostgreSQL", "Gemini API", "Tariff logic", "AI workflows"],
@@ -430,11 +438,51 @@ contactForm?.addEventListener("submit", (event) => {
   window.location.href = `mailto:raghuvanshisaatvik@gmail.com?subject=${subject}&body=${body}`;
 });
 
+// ═══ MOTION.DEV SCROLL ANIMATIONS ═══
+const { animate, inView, scroll } = (typeof Motion !== 'undefined') ? Motion : {};
+const hasMotion = typeof animate === 'function';
+
+// Hero entrance animation
+if (hasMotion) {
+  const heroBlock = document.querySelector('.hero-copy-block');
+  const heroShowcase = document.querySelector('.hero-showcase');
+  if (heroBlock) {
+    animate(heroBlock, { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, easing: [0.16, 1, 0.3, 1] });
+  }
+  if (heroShowcase) {
+    animate(heroShowcase, { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, delay: 0.15, easing: [0.16, 1, 0.3, 1] });
+  }
+}
+
+// Scroll-triggered reveals using motion.dev inView
 const revealTargets = document.querySelectorAll(
-  ".section-heading, .intro-grid, .project-card, .tech-card, .timeline-item, .achievement-list p, .contact-layout"
+  ".section-heading-block, .intro-grid, .project-card, .tech-card, .timeline-item, .achievement-item, .contact-layout"
 );
 
-if ("IntersectionObserver" in window) {
+if (hasMotion && typeof inView === 'function') {
+  // Use motion.dev for scroll-triggered animations
+  revealTargets.forEach((target, index) => {
+    inView(target, () => {
+      animate(target, { opacity: [0, 1], y: [24, 0] }, {
+        duration: 0.55,
+        delay: Math.min(index * 0.04, 0.22),
+        easing: [0.16, 1, 0.3, 1],
+      });
+    }, { margin: "-8% 0px -8% 0px" });
+    // Start hidden
+    target.style.opacity = '0';
+  });
+
+  // Hero scroll parallax
+  const heroContent = document.querySelector('.hero-content');
+  if (heroContent && typeof scroll === 'function') {
+    scroll(
+      animate('.hero-grid-lines', { y: [0, 80] }),
+      { target: heroContent, offset: ["start start", "end start"] }
+    );
+  }
+} else if ("IntersectionObserver" in window) {
+  // Fallback: standard IntersectionObserver
   const observer = new IntersectionObserver(
     (entries) => {
       entries.forEach((entry) => {
@@ -445,12 +493,8 @@ if ("IntersectionObserver" in window) {
         }
       });
     },
-    {
-      threshold: 0.14,
-      rootMargin: "-6% 0px -6% 0px",
-    }
+    { threshold: 0.14, rootMargin: "-6% 0px -6% 0px" }
   );
-
   revealTargets.forEach((target, index) => {
     target.classList.add("reveal");
     target.style.transitionDelay = `${Math.min(index * 35, 210)}ms`;
@@ -458,6 +502,23 @@ if ("IntersectionObserver" in window) {
   });
 } else {
   revealTargets.forEach((target) => target.classList.add("is-visible"));
+}
+
+// Tech card stagger animation on scroll
+if (hasMotion && typeof inView === 'function') {
+  const techGrid = document.querySelector('.tech-grid');
+  if (techGrid) {
+    const techCards = techGrid.querySelectorAll('.tech-card');
+    inView(techGrid, () => {
+      techCards.forEach((card, i) => {
+        animate(card, { opacity: [0, 1], y: [20, 0] }, {
+          duration: 0.45,
+          delay: i * 0.035,
+          easing: [0.16, 1, 0.3, 1],
+        });
+      });
+    }, { margin: "-8% 0px -8% 0px" });
+  }
 }
 
 document.querySelectorAll(".tech-card, .project-card").forEach((card) => {

@@ -38,7 +38,8 @@ RESUME = {
                 ("Languages", "C, Python, TypeScript, JavaScript, HTML, CSS"),
                 ("Frontend", "React.js, Next.js, Tailwind CSS, shadcn/ui, Radix UI, Redux, responsive UI/UX"),
                 ("Backend and Database", "Node.js, PostgreSQL, Supabase, Convex, REST APIs, authentication, Row Level Security"),
-                ("AI, Cloud and Tools", "Gemini API, Inngest, Firebase, Google Cloud, Vercel, Netlify, Git, GitHub, ngrok"),
+                ("AI and Tools", "Gemini API, Inngest, Firebase, Google Cloud, Vercel, Netlify, Git, GitHub, ngrok, Prisma"),
+                ("Cloud and DevOps", "Microsoft Azure, Azure Databricks, Azure SQL, Docker, CI/CD, Linux, Linux Kernel"),
                 ("Other Technical Skills", "AutoCAD, drone building, line follower robots, GIS map integration, robotics fundamentals"),
             ],
         },
@@ -116,6 +117,13 @@ RESUME = {
                         "Building foundational cloud computing knowledge aligned with cloud engineering internships, deployment workflows, backend services, and infrastructure fundamentals.",
                     ],
                 },
+                {
+                    "title": "Cybersecurity & Cloud Computing Certificate | Interns Elite",
+                    "meta": "May 2026 - July 2026 | Remote",
+                    "bullets": [
+                        "Completed a structured program covering cybersecurity fundamentals, cloud infrastructure, Azure services, Docker containerization, CI/CD pipelines, and Linux system administration.",
+                    ],
+                },
             ],
         },
         {
@@ -123,6 +131,9 @@ RESUME = {
             "bullets": [
                 "INDIA.RUNS 2026 Ideathon: Built ShockProof for Challenge 3, Improve Everyday Life with AI, as part of team Noble Dawn.",
                 "Startup Forge Ideathon: 4th Place Finisher, GCEC Global Foundation, for ResilienceOS during a 48-hour build.",
+                "Craft N Code Hackathon: Cyber Space Club, MUJ in collaboration with Techfest IIIT Bhubaneswar; built EcoCity Heat Planner for urban heat island mitigation.",
+                "Bharatiya Antariksh Hackathon 2026: ISRO Problem Statement 8; built Lunar Ice Intelligence for subsurface ice detection using Chandrayaan-2 data.",
+                "AI Tools Workshop Completion Certificate: be10x; mastered AI-driven productivity tools including NotebookLM, Wispr Flow AI, Google Stitch, Google AI Studio, Claude AI, Julius AI, Codex by OpenAI, Comet, and n8n.",
                 "Technical workshops and hackathons: Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, Machine Learning Workshop, and AI/Prompt Engineering career session.",
             ],
         },

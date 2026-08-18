@@ -11,14 +11,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Geist:wght@400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
     />
-    <link rel="stylesheet" href="styles.css?v=18" />
+    <link rel="stylesheet" href="styles.css?v=19" />
   </head>
   <body>
     <header class="site-header">
@@ -40,17 +40,13 @@
 
     <main id="top">
       <section class="hero-section" aria-label="Introduction">
-        <div class="hero-background" aria-hidden="true">
-          <img class="hero-image" src="assets/hero-workspace.png" alt="" />
-        </div>
-        <div class="hero-overlay"></div>
+        <div class="hero-grid-lines" aria-hidden="true"></div>
         <div class="hero-content page-shell">
           <div class="hero-copy-block">
-            <p class="eyebrow">CSE undergrad | building | learning</p>
-            <h1>Saatvik Raghuvanshi</h1>
+            <p class="eyebrow">CSE undergrad · Manipal University Jaipur</p>
+            <h1><span class="hero-line">Saatvik</span><span class="hero-line hero-line-accent">Raghuvanshi</span></h1>
             <p class="hero-copy">
-              I am learning full-stack development by building freelance websites, hackathon demos,
-              and college projects across frontend, UI/UX, databases, AI workflows, and maps.
+              Building full-stack web apps, hackathon projects, and UI/UX interfaces. Learning through shipping — freelance sites, prototypes, and product demos.
             </p>
             <div class="hero-actions">
               <a class="button button-primary" href="#projects">View projects</a>
@@ -72,40 +68,26 @@
           </div>
           <aside class="hero-showcase" aria-label="Recent project queue">
             <div class="showcase-header">
-              <span>Project queue</span>
-              <strong>Newest work first</strong>
+              <span>Latest work</span>
+              <strong>Newest first</strong>
             </div>
-            <a class="queue-feature" href="#projects" aria-label="View ShockProof project">
+            <a class="queue-feature" href="#projects" aria-label="View EcoCity Heat Planner">
               <span class="queue-label">Latest</span>
-              <img src="assets/projects/shockproof/shockproof-dashboard.png" alt="" />
-              <span class="queue-copy">
-                <strong>ShockProof</strong>
-                <small>AI meter tariff guard for INDIA RUNS 2026.</small>
-              </span>
+              <img src="assets/projects/ecocity/ecocity-dashboard.png" alt="" />
+              <span class="queue-copy"><strong>EcoCity Heat Planner</strong><small>Urban heat island mitigation simulation dashboard.</small></span>
             </a>
             <div class="queue-list" aria-label="Recently added projects">
-              <a class="queue-item" href="#projects">
-                <span>01</span>
-                <strong>S2C / FramePilot</strong>
-                <small>AI SaaS learning build</small>
-              </a>
-              <a class="queue-item" href="#projects">
-                <span>02</span>
-                <strong>VibeBatch</strong>
-                <small>Freelance social web app</small>
-              </a>
-              <a class="queue-item" href="#projects">
-                <span>03</span>
-                <strong>ResilienceOS</strong>
-                <small>College ideathon build</small>
-              </a>
+              <a class="queue-item" href="#projects"><span>01</span><strong>Lunar Ice Intelligence</strong><small>ISRO Bharatiya Antariksh Hackathon 2026</small></a>
+              <a class="queue-item" href="#projects"><span>02</span><strong>ShockProof</strong><small>AI meter tariff guard for INDIA RUNS 2026</small></a>
+              <a class="queue-item" href="#projects"><span>03</span><strong>S2C / FramePilot</strong><small>AI SaaS learning build</small></a>
             </div>
           </aside>
         </div>
+        <div class="hero-scroll-hint" aria-hidden="true"><span>Scroll</span><div class="scroll-line"></div></div>
       </section>
 
       <section class="section page-shell intro-grid" aria-labelledby="about-title">
-        <div>
+        <div class="section-heading-block">
           <p class="section-kicker">About</p>
           <h2 id="about-title">Building, learning, and testing ideas outside the classroom.</h2>
         </div>
@@ -129,12 +111,142 @@
       </section>
 
       <section class="section page-shell" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
+        <div class="section-heading-block">
           <p class="section-kicker">Featured work</p>
           <h2 id="projects-title">Projects I have shipped, tested, and learned from.</h2>
         </div>
 
         <div class="project-list">
+          
+          <article class="project-card" data-added="2026-08-15" data-context="Built for Craft N Code hackathon organized by Cyber Space Club, MUJ in collaboration with Techfest IIIT Bhubaneswar. Round 00 online round — results pending.">
+            <div class="project-preview"><img src="assets/projects/ecocity/ecocity-dashboard.png" alt="EcoCity Heat Planner dashboard showing map with spatial interventions and simulation controls" loading="lazy" /></div>
+            <div class="project-meta"><span>Climate tech</span><span>React/Vite + Supabase + Leaflet</span></div>
+            <h3>EcoCity Heat Planner</h3>
+            <p>An interactive simulation dashboard that models urban heat island effects and tests mitigation strategies like green roofs, cool pavements, and tree planting in real time.</p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+                <ul>
+                  <li>Built for the Craft N Code hackathon organized by Cyber Space Club, Manipal University Jaipur in collaboration with Techfest IIIT Bhubaneswar — Round 00 (online round), results pending.</li>
+                  <li>Designed an interactive heat mapping interface using Leaflet and Mapbox overlays to visualize urban thermal dynamics across city zones.</li>
+                  <li>Built real-time intervention sliders for urban canopy coverage, cool roof adoption, permeable pavements, water misting, and vertical gardens with dynamic metric calculations.</li>
+                  <li>Implemented calculated outputs for temperature reductions, energy savings, health risk mitigation, and carbon offset estimates per intervention scenario.</li>
+                  <li>Integrated Supabase with PostgreSQL and PostGIS for cloud persistence of scenario history with Row Level Security (RLS) policies.</li>
+                  <li>Developed with React, Vite, Tailwind CSS, and deployed on Vercel.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://ecocity-heat-planner.vercel.app/" target="_blank" rel="noreferrer">Live site</a>
+                  <a href="https://github.com/saatvikraghuvanshi-lab/ecocity-heat-planner" target="blank" rel="noreferrer">GitHub</a>
+                </div>
+                <details class="project-gallery">
+                  <summary>Gallery <span>8 UI screens</span></summary>
+                  <div class="gallery-grid" data-gallery="EcoCity">
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-dashboard.png" aria-label="Open EcoCity dashboard">
+                      <img src="assets/projects/ecocity/ecocity-dashboard.png" alt="EcoCity main dashboard with map and simulation controls" loading="lazy" />
+                      <span>Dashboard</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-gis-layers.png" aria-label="Open EcoCity GIS layers">
+                      <img src="assets/projects/ecocity/ecocity-gis-layers.png" alt="Thermal and spectral GIS layers view" loading="lazy" />
+                      <span>GIS Layers</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-thermal-layers.png" aria-label="Open EcoCity thermal layers">
+                      <img src="assets/projects/ecocity/ecocity-thermal-layers.png" alt="Thermal layers detail view" loading="lazy" />
+                      <span>Thermal</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-analytics.png" aria-label="Open EcoCity analytics">
+                      <img src="assets/projects/ecocity/ecocity-analytics.png" alt="Thermodynamic and ROI analytics dashboard" loading="lazy" />
+                      <span>Analytics</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-run-history.png" aria-label="Open EcoCity run history">
+                      <img src="assets/projects/ecocity/ecocity-run-history.png" alt="Simulation run history and comparison timeline" loading="lazy" />
+                      <span>Run History</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-reports.png" aria-label="Open EcoCity reports">
+                      <img src="assets/projects/ecocity/ecocity-reports.png" alt="Impact reports and scenario database" loading="lazy" />
+                      <span>Reports</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-settings-units.png" aria-label="Open EcoCity settings">
+                      <img src="assets/projects/ecocity/ecocity-settings-units.png" alt="Application settings for units and display" loading="lazy" />
+                      <span>Settings</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/ecocity/ecocity-settings-map.png" aria-label="Open EcoCity map settings">
+                      <img src="assets/projects/ecocity/ecocity-settings-map.png" alt="Simulation and map configuration settings" loading="lazy" />
+                      <span>Map Settings</span>
+                    </button>
+                  </div>
+                  <p class="gallery-empty">EcoCity screenshots are wired in.</p>
+                </details>
+              </div>
+            </details>
+          </article>
+
+          <article class="project-card" data-added="2026-07-20" data-context="Mission-planning prototype for ISRO Bharatiya Antariksh Hackathon 2026, Problem Statement 8: Detection and Characterization of Subsurface Ice in Lunar South Polar Regions. Evolved into a 2-month project-based learning build exploring Prisma, Python, and geospatial data processing.">
+            <div class="project-preview"><img src="assets/projects/lunar-ice/lunar-ice-landing.png" alt="Lunar Ice Intelligence landing page showing Chandrayaan-2 evidence workspace" loading="lazy" /></div>
+            <div class="project-meta"><span>Space / GIS</span><span>Next.js + Prisma + Python</span></div>
+            <h3>Lunar Ice Intelligence</h3>
+            <p>A mission-planning prototype that fuses Chandrayaan-2 radar data, terrain products, and illumination proxies to rank candidate subsurface-ice targets for lunar landing site selection.</p>
+            <details class="project-details">
+              <summary>Open project details</summary>
+              <div class="project-detail-body">
+                <ul>
+                  <li>Originally built for ISRO's Bharatiya Antariksh Hackathon 2026 — Problem Statement 8: Detection and Characterization of Subsurface Ice in Lunar South Polar Regions Using Chandrayaan-2 Radar and Imagery Data.</li>
+                  <li>Evolved into a 2-month project-based learning build covering Prisma ORM, Python geospatial processing, and full-stack Next.js development.</li>
+                  <li>Fused Chandrayaan-2 DFSAR radar evidence, TMC-2 terrain products, OHRC footprint/hazard-readiness outputs, illumination/cold-trap proxies, and NASA LOLA validation.</li>
+                  <li>Implemented CPR/DOP threshold gating (CPR &gt; 1, DOP &lt; 0.13), Faustini/F2 reference modeling, and solar-aware A* traverse routing from landing zone to science target.</li>
+                  <li>Built top-5m ice-volume scenarios at 3%, 8%, and 15% assumed fractions, with validation gate readiness tracking and scientific honesty panels.</li>
+                  <li>Deployed on Render with Next.js auth shell, Prisma database layer (JSON fallback for local dev), and a same-origin evidence dashboard.</li>
+                </ul>
+                <div class="project-links">
+                  <a href="https://lunar-ice-intelligence.onrender.com/" target="_blank" rel="noreferrer">Live site</a>
+                  <a href="https://github.com/saatvikraghuvanshi-lab/Lunar-Ice-Intelligence" target="_blank" rel="noreferrer">GitHub</a>
+                </div>
+                <details class="project-gallery">
+                  <summary>Gallery <span>9 UI screens</span></summary>
+                  <div class="gallery-grid" data-gallery="Lunar Ice">
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-landing.png" aria-label="Open Lunar Ice landing">
+                      <img src="assets/projects/lunar-ice/lunar-ice-landing.png" alt="Lunar Ice Intelligence landing page" loading="lazy" />
+                      <span>Landing</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-signin.png" aria-label="Open Lunar Ice sign-in">
+                      <img src="assets/projects/lunar-ice/lunar-ice-signin.png" alt="Lunar Ice sign-in page" loading="lazy" />
+                      <span>Sign in</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-console.png" aria-label="Open Lunar Ice mission console">
+                      <img src="assets/projects/lunar-ice/lunar-ice-console.png" alt="Lunar Ice mission console with evidence viewport" loading="lazy" />
+                      <span>Mission Console</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-traverse.png" aria-label="Open Lunar Ice rover traverse">
+                      <img src="assets/projects/lunar-ice/lunar-ice-traverse.png" alt="Computed rover traverse with landing zones" loading="lazy" />
+                      <span>Traverse</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-hazard.png" aria-label="Open Lunar Ice hazard extraction">
+                      <img src="assets/projects/lunar-ice/lunar-ice-hazard.png" alt="OHRC hazard extraction with candidate ranking" loading="lazy" />
+                      <span>Hazard</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-evidence-ledger.png" aria-label="Open Lunar Ice evidence ledger">
+                      <img src="assets/projects/lunar-ice/lunar-ice-evidence-ledger.png" alt="Evidence ledger with candidate ranking and processing chain" loading="lazy" />
+                      <span>Evidence Ledger</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-source-ledger.png" aria-label="Open Lunar Ice source ledger">
+                      <img src="assets/projects/lunar-ice/lunar-ice-source-ledger.png" alt="Source-to-evidence ledger showing data sources" loading="lazy" />
+                      <span>Source Ledger</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-confidence.png" aria-label="Open Lunar Ice confidence gauge">
+                      <img src="assets/projects/lunar-ice/lunar-ice-confidence.png" alt="Confidence gauge and traverse profile" loading="lazy" />
+                      <span>Confidence</span>
+                    </button>
+                    <button class="gallery-thumb" type="button" data-full="assets/projects/lunar-ice/lunar-ice-imagery.png" aria-label="Open Lunar Ice downloaded imagery">
+                      <img src="assets/projects/lunar-ice/lunar-ice-imagery.png" alt="Downloaded DFSAR and OHRC imagery products" loading="lazy" />
+                      <span>Imagery</span>
+                    </button>
+                  </div>
+                  <p class="gallery-empty">Lunar Ice screenshots are wired in.</p>
+                </details>
+              </div>
+            </details>
+          </article>
+
+
           <!-- Project cards are sorted newest-first by data-added in script.js. Add new projects with the latest ISO date so they appear first. -->
           <article class="project-card" data-added="2026-06-14" data-context="Latest project for INDIA RUNS 2026 Ideathon Challenge 3: Improve Everyday Life with AI.">
             <div class="project-preview">
@@ -524,7 +636,7 @@
 
       <section class="section skills-band" id="skills" aria-labelledby="skills-title">
         <div class="page-shell">
-          <div class="section-heading">
+          <div class="section-heading-block">
             <p class="section-kicker">Skills</p>
           <h2 id="skills-title">Technical skills and tools I use while building.</h2>
           </div>
@@ -568,24 +680,20 @@
               </span>
               <p>GitHub Docs</p>
             </div>
-            <div class="tech-card">
-              <span class="brand-logo codex-logo" aria-hidden="true">
-                <svg viewBox="0 0 64 56" role="img">
-                  <path d="M18 43h31c7.2 0 13-5.5 13-12.3 0-6.1-4.8-11.3-11.1-12.1A17.4 17.4 0 0 0 18.6 13C9.2 13.4 2 20.3 2 28.8 2 37.1 9.2 43 18 43Z" />
-                  <path d="m27 20-9 8 9 8" />
-                  <path d="M37 35h13" />
-                </svg>
-              </span>
-              <p>Codex</p>
-            </div>
+            <div class="tech-card"><span class="brand-logo prisma-logo" aria-hidden="true">Prisma</span><p>Prisma</p></div>
             <div class="tech-card"><span class="brand-logo ngrok-logo" aria-hidden="true">ng</span><p>ngrok</p></div>
             <div class="tech-card"><span class="tech-mark amber">CAD</span><p>AutoCAD</p></div>
-          </div>
-        </div>
+            <div class="tech-card"><i class="devicon-docker-plain colored"></i><p>Docker</p></div>
+            <div class="tech-card"><i class="devicon-linux-plain colored"></i><p>Linux</p></div>
+            <div class="tech-card"><span class="tech-mark dark">CI</span><p>CI/CD</p></div>
+            <div class="tech-card"><span class="tech-mark" style="background:#0078D4">Az</span><p>Microsoft Azure</p></div>
+            <div class="tech-card"><span class="tech-mark" style="background:#FF6F00">DB</span><p>Azure Databricks</p></div>
+            <div class="tech-card"><span class="tech-mark" style="background:#0078D4">SQL</span><p>Azure SQL</p></div>
+            </div>
       </section>
 
       <section class="section page-shell timeline-grid" id="experience" aria-labelledby="experience-title">
-        <div class="section-heading">
+        <div class="section-heading-block">
           <p class="section-kicker">Background</p>
           <h2 id="experience-title">Education, experience, and proof.</h2>
         </div>
@@ -615,14 +723,18 @@
       </section>
 
       <section class="section page-shell achievements" aria-labelledby="achievements-title">
-        <div class="section-heading">
+        <div class="section-heading-block">
           <p class="section-kicker">Achievements</p>
-          <h2 id="achievements-title">Ideathons, hackathons, workshops, and certifications.</h2>
+          <h2 id="achievements-title">Hackathons, ideathons, workshops, and certifications.</h2>
         </div>
         <div class="achievement-list">
-          <p>Startup Forge Ideathon - 4th Place Finisher, GCEC Global Foundation.</p>
-          <p>Career Guidance Session: Artificial Intelligence and Prompt Engineering, GradGuru Innovations.</p>
-          <p>Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge, Fastest Line Follower Challenge, and Machine Learning Workshop at Times Technoxian 2019.</p>
+          <div class="achievement-item"><span class="achievement-year">2026</span><p>Cybersecurity & Cloud Computing Certificate — Interns Elite (May–July 2026, Remote). Covered Azure, Docker, CI/CD, Linux.</p></div>
+          <div class="achievement-item"><span class="achievement-year">2026</span><p>AI Tools Workshop Completion — be10x. Mastered NotebookLM, Wispr Flow AI, Google Stitch, Google AI Studio, Claude AI, Julius AI, Codex by OpenAI, Comet, and n8n.</p></div>
+          <div class="achievement-item"><span class="achievement-year">2026</span><p>Craft N Code — Cyber Space Club, MUJ × Techfest IIIT Bhubaneswar (Round 00, results pending)</p></div>
+          <div class="achievement-item"><span class="achievement-year">2026</span><p>Bharatiya Antariksh Hackathon — ISRO Problem Statement 8 (Lunar Ice Intelligence, 2-month build)</p></div>
+          <div class="achievement-item"><span class="achievement-year">2026</span><p>INDIA RUNS 2026 Ideathon — Challenge 3: Improve Everyday Life with AI (ShockProof, team Noble Dawn)</p></div>
+          <div class="achievement-item"><span class="achievement-year">2025</span><p>Startup Forge Ideathon — 4th Place Finisher, GCEC Global Foundation</p></div>
+          <div class="achievement-item"><span class="achievement-year">2025</span><p>Rewind & Recode National Hackathon, Robotics Workshop at Techfest IIT Bombay, WRC Quadcopter Challenge</p></div>
         </div>
       </section>
 
@@ -698,6 +810,7 @@
       </div>
     </footer>
 
-    <script src="script.js?v=11"></script>
+    <script src="https://cdn.jsdelivr.net/npm/motion@11.18.2/dist/motion.js"></script>
+    <script src="script.js?v=12"></script>
   </body>
 </html>
