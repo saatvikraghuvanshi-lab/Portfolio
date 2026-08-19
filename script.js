@@ -438,89 +438,193 @@ contactForm?.addEventListener("submit", (event) => {
   window.location.href = `mailto:raghuvanshisaatvik@gmail.com?subject=${subject}&body=${body}`;
 });
 
-// ═══ MOTION.DEV SCROLL ANIMATIONS ═══
-const { animate, inView, scroll } = (typeof Motion !== 'undefined') ? Motion : {};
-const hasMotion = typeof animate === 'function';
-
-// Hero entrance animation
-if (hasMotion) {
-  const heroBlock = document.querySelector('.hero-copy-block');
-  const heroShowcase = document.querySelector('.hero-showcase');
-  if (heroBlock) {
-    animate(heroBlock, { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, easing: [0.16, 1, 0.3, 1] });
+// ═══ ANIME.JS ANIMATIONS ═══
+(function() {
+  const hasAnime = typeof anime === 'function';
+  if (!hasAnime) {
+    // Fallback: just show everything
+    document.body.classList.add('anim-done');
+    return;
   }
-  if (heroShowcase) {
-    animate(heroShowcase, { opacity: [0, 1], y: [30, 0] }, { duration: 0.7, delay: 0.15, easing: [0.16, 1, 0.3, 1] });
-  }
-}
 
-// Scroll-triggered reveals using motion.dev inView
-const revealTargets = document.querySelectorAll(
-  ".section-heading-block, .intro-grid, .project-card, .tech-card, .timeline-item, .achievement-item, .contact-layout"
-);
+  // ─── HERO ENTRANCE ───
+  const heroTimeline = anime.timeline({ easing: 'easeOutExpo', delay: 200 });
+  
+  heroTimeline
+    .add({ targets: '.hero-grid-lines', opacity: [0, 1], duration: 800 })
+    .add({ targets: '.eyebrow', opacity: [0, 1], translateY: [15, 0], duration: 500 }, '-=400')
+    .add({ targets: '.hero-line', opacity: [0, 1], translateY: [40, 0], duration: 600, delay: anime.stagger(120) }, '-=300')
+    .add({ targets: '.hero-copy', opacity: [0, 1], translateY: [20, 0], duration: 500 }, '-=350')
+    .add({ targets: '.hero-actions', opacity: [0, 1], translateY: [15, 0], duration: 400 }, '-=300')
+    .add({ targets: '.hero-showcase', opacity: [0, 1], translateY: [25, 0], duration: 500 }, '-=250')
+    .add({ targets: '.queue-feature', opacity: [0, 1], translateY: [20, 0], scale: [0.98, 1], duration: 450 }, '-=300')
+    .add({ targets: '.queue-item', opacity: [0, 1], translateX: [-20, 0], duration: 350, delay: anime.stagger(80) }, '-=250')
+    .add({ targets: '.scroll-line', opacity: [0, 1], scaleY: [0, 1], duration: 600, easing: 'easeInOutQuad' }, '-=200');
 
-if (hasMotion && typeof inView === 'function') {
-  // Use motion.dev for scroll-triggered animations
-  revealTargets.forEach((target, index) => {
-    inView(target, () => {
-      animate(target, { opacity: [0, 1], y: [24, 0] }, {
-        duration: 0.55,
-        delay: Math.min(index * 0.04, 0.22),
-        easing: [0.16, 1, 0.3, 1],
-      });
-    }, { margin: "-8% 0px -8% 0px" });
-    // Start hidden
-    target.style.opacity = '0';
-  });
+  heroTimeline.finished.then(() => document.body.classList.add('anim-done'));
 
-  // Hero scroll parallax
-  const heroContent = document.querySelector('.hero-content');
-  if (heroContent && typeof scroll === 'function') {
-    scroll(
-      animate('.hero-grid-lines', { y: [0, 80] }),
-      { target: heroContent, offset: ["start start", "end start"] }
-    );
-  }
-} else if ("IntersectionObserver" in window) {
-  // Fallback: standard IntersectionObserver
-  const observer = new IntersectionObserver(
-    (entries) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add("is-visible");
-        } else {
-          entry.target.classList.remove("is-visible");
-        }
-      });
-    },
-    { threshold: 0.14, rootMargin: "-6% 0px -6% 0px" }
+  // ─── SCROLL REVEALS ───
+  const revealTargets = document.querySelectorAll(
+    '.section-heading-block, .intro-grid, .timeline-item, .achievement-item, .contact-layout'
   );
-  revealTargets.forEach((target, index) => {
-    target.classList.add("reveal");
-    target.style.transitionDelay = `${Math.min(index * 35, 210)}ms`;
-    observer.observe(target);
-  });
-} else {
-  revealTargets.forEach((target) => target.classList.add("is-visible"));
-}
 
-// Tech card stagger animation on scroll
-if (hasMotion && typeof inView === 'function') {
+  const revealed = new WeakSet();
+  const scrollObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !revealed.has(entry.target)) {
+        revealed.add(entry.target);
+        anime({
+          targets: entry.target,
+          opacity: [0, 1],
+          translateY: [30, 0],
+          duration: 600,
+          easing: 'easeOutCubic',
+        });
+        scrollObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+
+  revealTargets.forEach(el => scrollObserver.observe(el));
+
+  // ─── PROJECT CARDS — staggered reveal ───
+  const projectCards = document.querySelectorAll('.project-card');
+  const projectRevealed = new WeakSet();
+  const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !projectRevealed.has(entry.target)) {
+        projectRevealed.add(entry.target);
+        // Find index among siblings
+        const parent = entry.target.parentElement;
+        const siblings = Array.from(parent.querySelectorAll('.project-card'));
+        const idx = siblings.indexOf(entry.target);
+        anime({
+          targets: entry.target,
+          opacity: [0, 1],
+          translateY: [40, 0],
+          duration: 650,
+          delay: idx * 100,
+          easing: 'easeOutCubic',
+        });
+        projectObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -4% 0px' });
+
+  projectCards.forEach(card => projectObserver.observe(card));
+
+  // ─── TECH CARDS — staggered grid reveal ───
   const techGrid = document.querySelector('.tech-grid');
   if (techGrid) {
     const techCards = techGrid.querySelectorAll('.tech-card');
-    inView(techGrid, () => {
-      techCards.forEach((card, i) => {
-        animate(card, { opacity: [0, 1], y: [20, 0] }, {
-          duration: 0.45,
-          delay: i * 0.035,
-          easing: [0.16, 1, 0.3, 1],
-        });
+    const techRevealed = { done: false };
+    const techObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !techRevealed.done) {
+          techRevealed.done = true;
+          anime({
+            targets: techCards,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            scale: [0.95, 1],
+            duration: 400,
+            delay: anime.stagger(30, { start: 100 }),
+            easing: 'easeOutCubic',
+          });
+          techObserver.unobserve(entry.target);
+        }
       });
-    }, { margin: "-8% 0px -8% 0px" });
+    }, { threshold: 0.1 });
+    techObserver.observe(techGrid);
   }
-}
 
+  // ─── HERO PARALLAX on scroll ───
+  const heroGrid = document.querySelector('.hero-grid-lines');
+  if (heroGrid) {
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const scrollY = window.scrollY;
+          const maxScroll = window.innerHeight;
+          if (scrollY < maxScroll) {
+            const progress = scrollY / maxScroll;
+            heroGrid.style.transform = 'translateY(' + (progress * 60) + 'px)';
+            heroGrid.style.opacity = 1 - progress * 0.7;
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }, { passive: true });
+  }
+
+  // ─── SKILLS BAND reveal ───
+  const skillsBand = document.querySelector('.skills-band');
+  if (skillsBand) {
+    const skillsObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          anime({
+            targets: skillsBand,
+            opacity: [0, 1],
+            translateY: [20, 0],
+            duration: 500,
+            easing: 'easeOutCubic',
+          });
+          skillsObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    skillsObs.observe(skillsBand);
+  }
+
+  // ─── SECTION KICKER underline animation ───
+  document.querySelectorAll('.section-kicker').forEach(kicker => {
+    kicker.style.borderBottom = '2px solid var(--burgundy)';
+    kicker.style.paddingBottom = '6px';
+    kicker.style.display = 'inline-block';
+    kicker.style.width = '0';
+    kicker.style.overflow = 'hidden';
+    kicker.style.transition = 'none';
+    
+    const kickerObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setTimeout(() => {
+            kicker.style.transition = 'width 500ms cubic-bezier(0.16,1,0.3,1)';
+            kicker.style.width = '100%';
+          }, 200);
+          kickerObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+    kickerObs.observe(kicker);
+  });
+
+  // ─── FLOATING BURGUNDY DOT PARTICLES (decorative) ───
+  const heroSection = document.querySelector('.hero-section');
+  if (heroSection) {
+    for (let i = 0; i < 6; i++) {
+      const dot = document.createElement('div');
+      dot.setAttribute('aria-hidden', 'true');
+      dot.style.cssText = 'position:absolute;width:' + (3 + Math.random()*5) + 'px;height:' + (3 + Math.random()*5) + 'px;border-radius:50%;background:rgba(232,25,76,' + (0.15 + Math.random()*0.2) + ');pointer-events:none;z-index:1;top:' + (Math.random()*100) + '%;left:' + (Math.random()*100) + '%;';
+      heroSection.appendChild(dot);
+      
+      anime({
+        targets: dot,
+        translateY: [0, -30 - Math.random()*40],
+        translateX: [0, (Math.random()-0.5)*30],
+        opacity: [0, 0.6, 0],
+        duration: 3000 + Math.random()*2000,
+        delay: 500 + i * 400,
+        loop: true,
+        easing: 'easeInOutQuad',
+      });
+    }
+  }
+
+})();
 document.querySelectorAll(".tech-card, .project-card").forEach((card) => {
   card.addEventListener("pointermove", (event) => {
     const rect = card.getBoundingClientRect();
